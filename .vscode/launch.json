@@ -1,5 +1,6 @@
 {
   "configurations": [
+
     {
       "type": "java",
       "name": "Test",
@@ -15,5 +16,12 @@
       "args": [],
       "cwd": "${workspaceFolder}"
     }
-  ]
+  ],
+  "java.project.referencedLibraries": [
+    "lib/commons-collections4-4.1.jar",
+    "lib/poi-3.17.jar",
+    "lib/poi-ooxml-3.17.jar",
+    "lib/poi-ooxml-schemas-3.17.jar",
+    "lib/xmlbeans-2.6.0.jar"
+]
 }

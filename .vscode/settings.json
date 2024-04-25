@@ -1,0 +1,16 @@
+{
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar",
+            "d:\\Downloads\\xmlbeans-2.6.0.jar",
+            "d:\\Downloads\\poi-ooxml-schemas-3.17.jar",
+            "d:\\Downloads\\poi-ooxml-3.17.jar",
+            "d:\\Downloads\\poi-3.17.jar",
+            "d:\\Downloads\\commons-collections4-4.1 (1).jar",
+            "d:\\Downloads\\commons-collections4-4.1.jar"
+        ],
+        "exclude": [
+            "d:\\Downloads\\poi-bin-5.2.3-20220909\\poi-bin-5.2.3\\poi-ooxml-full-5.2.3.jar"
+        ]
+    }
+}
