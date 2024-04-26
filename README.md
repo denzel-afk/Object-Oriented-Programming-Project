@@ -53,5 +53,17 @@ For detailed documentation, refer to the `./src` directory.
 
 ## UML Class Diagrams
 
-Class diagrams can be found in the `./diagrams` folder:
+Class diagrams can be found in the `./images' folder:
+
+### Entity
+
+![Entity Img](/images/entity.jpg)
+
+### Boundary
+
+![boundary Img](/images/boundary.jpg)
+
+### Controller
+
+![controller Img](/images/controller.jpg)
 
