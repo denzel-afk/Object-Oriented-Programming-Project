@@ -17,10 +17,16 @@ public interface CustomerViewInterface {
     /**
      * This method is used to view the order status.
      * 
-     * @param branchName The branch name.
+     * @param branchName The branch name where it is ordered.
      * @param orderID    The order ID.
      */
     public void viewOrderStatus(String branchName, String orderID);
 
+    /**
+     * This method is used to view the order details.
+     * 
+     * @param branchName The branch name where it is ordered.
+     * @param orderID    The order ID.
+     */
     public double viewOrderDetails(String branchName, String orderID);
 }

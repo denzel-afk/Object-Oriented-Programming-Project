@@ -27,14 +27,10 @@ public class TestControl {
      * @param args The arguments.
      */
     public static void main(String[] args) {
-        /*
-         * Initialise the company
-         */
+
         CompanyController.initialise();
 
-        /*
-         * those part below is commented for test-case purposes
-         */
+        // comments below for test-case purposes
 
         // System.out.println("Admin: ");
         // System.out.println(Company.getAdmin().get(0).getUserName());
@@ -48,6 +44,8 @@ public class TestControl {
             System.out.println("num of mng: " + tem.getNumManager());
             System.out.println("mng quota: " + tem.getMgrQuota());
             System.out.println("staff quota: " + tem.getStaffQuota());
+
+            // comments below for test-case purposes
 
             // System.out.println("Staff: ");
             //
@@ -63,6 +61,8 @@ public class TestControl {
 
             System.out.println(" ");
         }
+
+        // comments below for test-case purposes
 
         // Branch tem = new Branch("NUS", "NUS", 6);
 

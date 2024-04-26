@@ -14,7 +14,7 @@ public interface OrderCollectionInterface {
     /**
      * This method is used to collect the order.
      * 
-     * @param branchName The branch name.
+     * @param branchName The branch name where it is ordered.
      * @param id         The order ID.
      */
     public void collectOrder(String branchName, String id);

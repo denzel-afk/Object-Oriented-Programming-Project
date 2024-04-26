@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import entity.Company;
 
-/*
+/**
  * PayNowController class is used to control the PayNow payment
  * 
  * @author Denzel Elden Wijaya

@@ -13,7 +13,7 @@ import entity.Role;
 import entity.MenuItem;
 import entity.MenuCategory;
 
-/*
+/**
  * CompanyController class is used to control the company functions
  * 
  * @author Denzel Elden Wijaya
@@ -26,7 +26,7 @@ import entity.MenuCategory;
 
 public class CompanyController {
 
-    /*
+    /**
      * The loadBranch method is used to load the branch data from the database
      */
     private static void loadBranch() {
@@ -44,7 +44,7 @@ public class CompanyController {
         Company.setBranch(branches);
     }
 
-    /*
+    /**
      * The loadStaff method is used to load the staff data from the database
      */
     private static void loadStaff() {
@@ -95,7 +95,7 @@ public class CompanyController {
         }
     }
 
-    /*
+    /**
      * The loadMenu method is used to load the menu data from the database
      */
     private static void loadMenu() {
@@ -149,14 +149,16 @@ public class CompanyController {
         }
     }
 
-    // call Company.initialise() to initialise the database
+    /**
+     * method to initialise the database
+     */
     public static void initialise() {
         loadBranch();
         loadStaff();
         loadMenu();
     }
 
-    /*
+    /**
      * The displayBranch method is used to display the branch data
      */
     public static void displayBranch() {

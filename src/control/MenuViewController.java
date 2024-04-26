@@ -28,25 +28,16 @@ public class MenuViewController {
     public static void displayMenu(String branchName) {
 
         try {
-            /*
-             * Check if the branch exists
-             */
             Branch branch = Company.getBranch().get(branchName);
             if (branch == null)
                 throw new BranchNotExistException();
 
-            /*
-             * Check if the menu list is empty
-             */
             ArrayList<MenuItem> menu = branch.getMenuItems();
             if (menu == null || menu.size() < 0)
                 throw new MenuException();
 
             System.out.printf("\t%-15s\t%s\t%s\n", "Name", "Price", "Category");
 
-            /*
-             * Display the menu
-             */
             int i = 1;
             for (MenuItem item : menu) {
                 System.out.printf("%d\t%-15s\t%.2f\t%s\n", i++, item.getItemName(), item.getPrice(),

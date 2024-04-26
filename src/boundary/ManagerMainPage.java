@@ -47,29 +47,10 @@ public class ManagerMainPage extends StaffMainPage {
 
     System.out.println("-----Manager-----");
 
-    /*
-     * The staff object is used to store the staff object that is returned from the
-     * checkValid method.
-     */
     Staff staff = null;
     if (user instanceof Staff)
       staff = (Staff) user;
 
-    /*
-     * @param branchName The branch name of the staff.
-     * 
-     * @param orderID The order ID of the order.
-     * 
-     * @param name The name of the menu item.
-     * 
-     * @param price The price of the menu item.
-     * 
-     * @param choice The choice of the user.
-     * 
-     * @param index The index of the menu item.
-     * 
-     * @param category The category of the menu item.
-     */
     String branchName = staff.getBranchName();
     String orderID, name;
     double price;
@@ -89,9 +70,6 @@ public class ManagerMainPage extends StaffMainPage {
           + "10)Log Out");
       choice = sc.nextInt();
 
-      /*
-       * @param choice The choice of the user.
-       */
       switch (choice) {
         case 1:
           viewNewOrders(branchName); // call static method from StaffMainPage

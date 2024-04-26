@@ -3,9 +3,9 @@ package control.customer;
 import entity.Company;
 import java.util.Scanner;
 
-/*
+/**
  * CashController class is used to control the cash payment
- *  
+ * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
  * @author Melisa Lee
@@ -38,9 +38,6 @@ public class CashController extends PaymentController {
         System.out.printf("Total: $%.2f%n", total);
         System.out.printf("Enter amount to pay: $%.2f - ", total); // Removed the % character after $
 
-        /*
-         * @param payment the amount paid by the customer
-         */
         double payment = sc.nextDouble();
         if (processPayment(total, payment)) {
             System.out.printf("Paid: $%.2f%n", payment);

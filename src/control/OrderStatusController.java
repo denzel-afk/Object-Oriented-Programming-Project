@@ -34,16 +34,10 @@ public class OrderStatusController
      */
     public void processOrder(String branchName, String id) {
         try {
-            /*
-             * Check if the branch exists
-             */
             Branch branch = Company.getBranch().get(branchName);
             if (branch == null)
                 throw new BranchNotExistException();
 
-            /*
-             * Check if the order list is empty
-             */
             HashMap<String, Order> orderList = Company.getBranch().get(branchName).getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();
@@ -71,31 +65,18 @@ public class OrderStatusController
      */
     public static void cancelOrder(String branchName) {
         try {
-            /*
-             * Check if the branch exists
-             */
             Branch branch = Company.getBranch().get(branchName);
             if (branch == null)
                 throw new BranchNotExistException();
 
-            /*
-             * Check if the order list is empty or invalid
-             */
             HashMap<String, Order> orderList = Company.getBranch().get(branchName).getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();
 
-            /*
-             * Cancel the order if the order is ready to pickup for more than 100000
-             * milliseconds
-             */
             for (Map.Entry<String, Order> e : orderList.entrySet()) {
                 Order order = e.getValue();
                 String key = e.getKey();
 
-                /*
-                 * Check if the order is ready to pickup for more than 100000 milliseconds
-                 */
                 if ((order.getStatus() == OrderStatus.READY_TO_PICKUP)
                         && (System.currentTimeMillis() - order.getTimeElapsed() > 100000)) {
                     orderList.remove(key);
@@ -120,18 +101,10 @@ public class OrderStatusController
         try {
             OrderStatusController.cancelOrder(branchName);
 
-            /*
-             * Check if the branch exists
-             */
             Branch branch = Company.getBranch().get(branchName);
             if (branch == null)
                 throw new BranchNotExistException();
 
-            /*
-             * Check if the order list is empty
-             * 
-             * @param orderList The order list.
-             */
             HashMap<String, Order> orderList = branch.getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();
@@ -139,11 +112,6 @@ public class OrderStatusController
             Order order = orderList.get(id);
             orderList.remove(id);
 
-            /*
-             * Collect the order if the order is ready to pickup
-             * 
-             * @param order The order.
-             */
             if (order.getStatus() == OrderStatus.READY_TO_PICKUP) {
                 order.setStatus(OrderStatus.COMPLETED);
                 System.out.println("Order collected!");
@@ -169,18 +137,10 @@ public class OrderStatusController
     public void checkOut(String branchName, String id, boolean paid) {
 
         try {
-            /*
-             * Check if the branch exists
-             */
             Branch branch = Company.getBranch().get(branchName);
             if (branch == null)
                 throw new BranchNotExistException();
 
-            /*
-             * Check if the order list is empty
-             * 
-             * @param orderList The order list.
-             */
             HashMap<String, Order> orderList = branch.getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();

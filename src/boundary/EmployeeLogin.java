@@ -36,16 +36,11 @@ public class EmployeeLogin {
 
 	@SuppressWarnings("incomplete-switch")
 
-	/*
+	/**
 	 * The employeeLoginUI method is used to display the login page for the employee
 	 * to interact with the system. The employee can login as a staff or an admin.
 	 */
 	public static void employeeLoginUI() {
-
-		/*
-		 * The user object is used to store the user object that is returned from the
-		 * checkValid method.
-		 */
 		User user = null;
 
 		do {
@@ -87,14 +82,13 @@ public class EmployeeLogin {
 		}
 	}
 
-	/*
+	/**
 	 * The enterLoginID method is used to prompt the employee to enter their login
 	 * ID.
+	 * 
+	 * @return loginID The login ID entered by the employee.
 	 */
 	public static String enterLoginID() {
-		/*
-		 * The loginID is used to store the login ID entered by the employee.
-		 */
 		String loginID;
 		System.out.println("Enter your Staff Login ID: ");
 		loginID = sc.next();
@@ -102,14 +96,13 @@ public class EmployeeLogin {
 		return loginID;
 	}
 
-	/*
+	/**
 	 * The enterPassword method is used to prompt the employee to enter their
 	 * password.
+	 * 
+	 * @return password The password entered by the employee.
 	 */
 	public static String enterPassword() {
-		/*
-		 * The password is used to store the password entered by the employee.
-		 */
 		String password;
 		System.out.println("Enter your password");
 		password = sc.next();
@@ -118,16 +111,16 @@ public class EmployeeLogin {
 
 	}
 
-	/*
+	/**
 	 * The checkValid method is used to check if the login ID and password entered
 	 * by the employee is valid.
+	 * 
+	 * @param loginID  The login ID entered by the employee.
+	 * @param password The password entered by the employee.
+	 * 
+	 * @return tempUser The user object if the login ID and password is valid.
 	 */
 	public static User checkValid(String loginID, String password) {
-
-		/*
-		 * The tempUser object is used to store the user object that is returned from
-		 * the checkExisting method.
-		 */
 		User tempUser;
 
 		try {

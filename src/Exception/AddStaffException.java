@@ -14,8 +14,7 @@ public class AddStaffException extends Exception {
 
     /**
      * Constructs a new AddStaffException with a default message, where this
-     * exception will be called
-     * when a staff can not be added.
+     * exception will be called when a staff can not be added.
      */
     public AddStaffException() {
         super("Staff cannot be added");

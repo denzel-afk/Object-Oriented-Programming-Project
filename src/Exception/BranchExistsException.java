@@ -14,8 +14,7 @@ package exception;
 public class BranchExistsException extends Exception {
     /**
      * Constructs a new BranchExistsException with a default message. This exception
-     * will be
-     * shown when a branch's name already exists.
+     * will be shown when a branch's name already exists.
      */
     public BranchExistsException() {
         super("Branch's name already existed");

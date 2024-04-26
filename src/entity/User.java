@@ -1,7 +1,8 @@
 package entity;
 
-/*
- * entity is the package containing the classes that represent the data of the system.
+/**
+ * entity is the package containing the classes that represent the data of the
+ * system.
  * It contains the classes that represent the data of the system.
  * 
  * @author Denzel Elden Wijaya
@@ -12,18 +13,18 @@ package entity;
  * @since 2024-04-26
  */
 public class User implements Comparable {
-	/*
+	/**
 	 * @param userName the name of the user
 	 * 
-	 * @param userId the id of the user
+	 * @param userId   the id of the user
 	 * 
 	 * @param password the password of the user
 	 * 
-	 * @param age the age of the user
+	 * @param age      the age of the user
 	 * 
-	 * @param gender is the gender of the user
+	 * @param gender   is the gender of the user
 	 * 
-	 * @param role is the role of the user
+	 * @param role     is the role of the user
 	 */
 	private String userName;
 	private String userId;
@@ -32,8 +33,14 @@ public class User implements Comparable {
 	private String gender;
 	private Role role;
 
-	/*
+	/**
 	 * This constructor is used to create a new user
+	 * 
+	 * @param userName The name of the user
+	 * @param userId   The id of the user
+	 * @param age      The age of the user
+	 * @param gender   The gender of the user
+	 * @param role     The role of the user
 	 */
 	public User(String userName, String userId, int age, String gender, Role role) {
 		this.userName = userName;
@@ -44,7 +51,7 @@ public class User implements Comparable {
 		this.role = role;
 	}
 
-	/*
+	/**
 	 * This method is used to get the role of the user
 	 * 
 	 * @return role The role of the user
@@ -53,14 +60,16 @@ public class User implements Comparable {
 		return role;
 	}
 
-	/*
+	/**
 	 * This method is used to set the role of the user
+	 * 
+	 * @param role The role of the user
 	 */
 	public void setRole(Role role) {
 		this.role = role;
 	}
 
-	/*
+	/**
 	 * This method is used to get the name of the user
 	 * 
 	 * @return userName The name of the user
@@ -69,14 +78,16 @@ public class User implements Comparable {
 		return userName;
 	}
 
-	/*
+	/**
 	 * This method is used to set the name of the user
+	 * 
+	 * @param userName The name of the user
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
-	/*
+	/**
 	 * This method is used to get the id of the user
 	 * 
 	 * @return userId The id of the user
@@ -85,14 +96,16 @@ public class User implements Comparable {
 		return userId;
 	}
 
-	/*
+	/**
 	 * This method is used to set the id of the user
+	 * 
+	 * @param userId The id of the user
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
-	/*
+	/**
 	 * This method is used to get the password of the user
 	 * 
 	 * @return password The password of the user
@@ -101,14 +114,16 @@ public class User implements Comparable {
 		return password;
 	}
 
-	/*
+	/**
 	 * This method is used to set the password of the user
+	 * 
+	 * @param password The password of the user
 	 */
 	public void setPassword(String password) {
 		this.password = password;
 	}
 
-	/*
+	/**
 	 * This method is used to get the age of the user
 	 * 
 	 * @return age The age of the user
@@ -117,14 +132,16 @@ public class User implements Comparable {
 		return age;
 	}
 
-	/*
+	/**
 	 * This method is used to set the age of the user
+	 * 
+	 * @param age The age of the user
 	 */
 	public void setAge(int age) {
 		this.age = age;
 	}
 
-	/*
+	/**
 	 * This method is used to get the gender of the user
 	 * 
 	 * @return gender The gender of the user
@@ -133,16 +150,20 @@ public class User implements Comparable {
 		return gender;
 	}
 
-	/*
+	/**
 	 * This method is used to set the gender of the user
+	 * 
+	 * @param gender The gender of the user
 	 */
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
 
-	/*
+	/**
 	 * This method is used to compare the age of the user
 	 * and sort the user based on the age
+	 * 
+	 * @return 1 if the age is greater than the other user
 	 */
 	@Override
 	public int compareTo(Object o) {

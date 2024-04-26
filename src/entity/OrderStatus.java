@@ -1,6 +1,6 @@
 package entity;
 
-/*
+/**
  * The OrderStatus enum represents the status of an order.
  * It contains the different statuses of an order.
  * 
@@ -13,8 +13,13 @@ package entity;
  */
 public enum OrderStatus {
 
-	/*
+	/**
 	 * The different statuses of an order
+	 * 
+	 * @param PENDING         The order is pending
+	 * @param READY_TO_PICKUP The order is ready to be picked up
+	 * @param COMPLETED       The order is completed
+	 * @param CANCELLED       The order is cancelled
 	 */
 	PENDING,
 	READY_TO_PICKUP,

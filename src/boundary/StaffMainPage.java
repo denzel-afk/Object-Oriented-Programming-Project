@@ -11,7 +11,7 @@ import exception.PromotionException;
 import exception.StaffExistException;
 import exception.WrongPasswordException;
 
-/*
+/**
  * StaffMainPage class is used to display the main page for the staff to
  * interact with the system. The staff can view new orders, view an order,
  * update order status, change password, and log out.
@@ -28,31 +28,21 @@ public class StaffMainPage {
 
   static Scanner sc = new Scanner(System.in);
 
-  /*
+  /**
    * The StaffUI method is used to display the main page for the staff to
    * interact with the system. The staff can view new orders, view an order,
    * update order status, change password, and log out.
+   * 
+   * @param user The user that is currently logged in.
    */
   public static void StaffUI(User user) {
 
     System.out.println("-----Staff-----");
 
-    /*
-     * The staffUser object is used to store the staff object that is returned from
-     * the
-     * checkValid method.
-     */
     Staff staffUser = null;
     if (user instanceof Staff)
       staffUser = (Staff) user;
 
-    /*
-     * @param branchName The branch name of the staff.
-     * 
-     * @param orderID The order ID.
-     * 
-     * @param choice The choice of the user.
-     */
     String branchName = staffUser.getBranchName();
     String orderID;
     int choice;
@@ -67,9 +57,6 @@ public class StaffMainPage {
 
       choice = sc.nextInt();
 
-      /*
-       * @param choice The choice of the user.
-       */
       switch (choice) {
         case 1:
           viewNewOrders(branchName);
@@ -97,47 +84,36 @@ public class StaffMainPage {
     } while (choice > 0 && choice <= 5);
   }
 
-  /*
+  /**
    * This method is used to view new orders
+   * 
+   * @param branchName The name of the branch to view new orders
    */
   public static void viewNewOrders(String branchName) {
-    /*
-     * @param viewer The viewer interface
-     * 
-     * @param branchName The name of the branch
-     */
     StaffViewInterface viewer = new OrderViewController();
     viewer.viewNewOrders(branchName);
   }
 
-  /*
+  /**
    * This method is used to view an order
+   * 
+   * @param branchName The name of the branch to view the order
+   * @param orderID    The order ID to be viewed
    */
   // Case 2
   public static void viewAnOrder(String branchName, String orderID) {
-    /*
-     * @param viewer The viewer interface
-     * 
-     * @param branchName The name of the branch
-     * 
-     * @param orderID The order ID
-     */
     CustomerViewInterface viewer = new OrderViewController();
     viewer.viewOrderDetails(branchName, orderID);
   }
 
-  /*
+  /**
    * This method is used to update order status
+   * 
+   * @param branchName The name of the branch to update the order status
+   * @param orderID    The order ID to be updated
    */
   // Case 3
   public static void updateOrderStatus(String branchName, String orderID) {
-    /*
-     * @param process The process interface
-     * 
-     * @param branchName The name of the branch
-     * 
-     * @param orderID The order ID
-     */
     OrderProcessingInterface process = new OrderStatusController();
     process.processOrder(branchName, orderID);
   }

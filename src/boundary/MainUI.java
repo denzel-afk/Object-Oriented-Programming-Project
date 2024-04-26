@@ -64,7 +64,8 @@ public class MainUI {
 	 * The roleChoice method is used to prompt the user to choose their role.
 	 * The user can choose to login as a customer or a staff.
 	 * 
-	 * @return choice The choice of the user.
+	 * @return choice The choice of the user for the role, either STAFF, MANAGER, or
+	 *         ADMIN.
 	 */
 	public static int roleChoice() {
 

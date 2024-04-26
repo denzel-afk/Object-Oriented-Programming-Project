@@ -29,13 +29,12 @@ public class BranchOperationController {
 
     /**
      * The displayStaffByBranch method is used to display the staff by branch
+     * 
+     * @param branch The branch name.
+     * @throws BranchExistsException If the branch already exists.
      */
     public static void openBranch(Branch branch) throws BranchExistsException {
         try {
-            /*
-             * The temBranches object is used to store the branches object that is returned
-             * from the getBranch method.
-             */
             HashMap<String, Branch> temBranches = Company.getBranch();
 
             for (Map.Entry<String, Branch> e : temBranches.entrySet()) {
@@ -47,10 +46,6 @@ public class BranchOperationController {
             temBranches.put(branch.getBranchName(), branch);
             Company.setBranch(temBranches);
 
-            /*
-             * The table object is used to store the table object that is returned from the
-             * readFile method.
-             */
             ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/branch_list_updated.xlsx", 3);
             Object[] toWrite = new Object[3];
 
@@ -60,10 +55,6 @@ public class BranchOperationController {
 
             table.add(toWrite);
 
-            /*
-             * The writeFile method is used to write the table object to the microsoft excel
-             * file.
-             */
             ExcelReaderWriter.writeFile(table, "data/branch_list_updated.xlsx", 3);
         } catch (IOException | InvalidFormatException e) {
             e.printStackTrace();
@@ -72,6 +63,10 @@ public class BranchOperationController {
 
     /**
      * The displayStaffByBranch method is used to display the staff by branch
+     * 
+     * @param branch The branch name.
+     * @throws CloseBranchException If the branch cannot be closed.
+     * 
      */
     public static void closeBranch(Branch branch) throws CloseBranchException {
         try {
@@ -89,10 +84,6 @@ public class BranchOperationController {
 
             Company.setBranch(temBranches);
 
-            /*
-             * The table object is used to store the table object that is returned from the
-             * readFile method.
-             */
             ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/branch_list_updated.xlsx", 3);
             Object[] toWrite = new Object[3];
 
@@ -106,10 +97,6 @@ public class BranchOperationController {
                     break;
                 }
             }
-            /*
-             * The writeFile method is used to write the table object to the microsoft excel
-             * file.
-             */
             ExcelReaderWriter.writeFile(table, "data/default_branch_list.xlsx", 3);
         } catch (IOException | InvalidFormatException e) {
             e.printStackTrace();

@@ -23,7 +23,7 @@ public class AccountController {
      * The checkExisting method is used to check if the user exists.
      * 
      * @param loginID The login ID of the user.
-     * @return The user.
+     * @return The user when the user exists.
      * @throws StaffNoExistenceException If the user does not exist.
      */
     public static User checkExisting(String loginID) throws StaffNoExistenceException {

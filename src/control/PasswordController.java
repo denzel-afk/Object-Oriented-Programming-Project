@@ -3,7 +3,7 @@ package control;
 import exception.WrongPasswordException;
 import entity.User;
 
-/*
+/**
  * PasswordController class is used to control the password functions
  * 
  * @author Denzel Elden Wijaya
@@ -14,7 +14,7 @@ import entity.User;
  * @since 2024-04-26
  */
 
-//this class is controlling all of things related to password change
+// this class is controlling all of things related to password change
 public class PasswordController {
 
     /**

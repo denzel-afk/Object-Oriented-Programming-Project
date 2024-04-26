@@ -33,9 +33,6 @@ public class OrderViewController implements CustomerViewInterface, StaffViewInte
         try {
             OrderStatusController.cancelOrder(branchName);
 
-            /*
-             * Check if the order list is empty
-             */
             HashMap<String, Order> orderList = Company.getBranch().get(branchName).getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();
@@ -60,9 +57,6 @@ public class OrderViewController implements CustomerViewInterface, StaffViewInte
         try {
             OrderStatusController.cancelOrder(branchName);
 
-            /*
-             * Check if the order list is empty
-             */
             HashMap<String, Order> orderList = Company.getBranch().get(branchName).getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();
@@ -81,9 +75,6 @@ public class OrderViewController implements CustomerViewInterface, StaffViewInte
 
             System.out.printf("\t%-15s\t%s\t%s\n", "Name", "QTY", "Price");
 
-            /*
-             * Display the order details
-             */
             int i = 1;
             for (OrderItem item : orderItems) {
                 String name = item.getItem().getItemName();
@@ -92,9 +83,6 @@ public class OrderViewController implements CustomerViewInterface, StaffViewInte
                 System.out.printf("%d\t%-15s\t%d\t%.2f\n", i++, name, qty, qty * price);
 
             }
-            /*
-             * @param total The total price of the order.
-             */
             double total = order.getTotalPrice();
             System.out.printf("Total: %.2f\n", total);
 
@@ -108,20 +96,14 @@ public class OrderViewController implements CustomerViewInterface, StaffViewInte
     /**
      * This method is used to view the new orders.
      * 
-     * @param branchName The branch name.
+     * @param branchName The branch name where staff wants to view the order
      */
     public void viewNewOrders(String branchName) {
         try {
-            /*
-             * Check if the order list is empty
-             */
             HashMap<String, Order> orderList = Company.getBranch().get(branchName).getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();
 
-            /*
-             * Display the new orders
-             */
             for (Map.Entry<String, Order> e : orderList.entrySet()) {
                 viewOrderDetails(branchName, e.getKey());
             }

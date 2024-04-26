@@ -33,6 +33,9 @@ public class LogOut {
 	/**
 	 * The employeeLoginUI method is used to display the login page for the employee
 	 * to interact with the system. The employee can login as a staff or an admin.
+	 * 
+	 * @param user The user that is currently logged in.
+	 * @param role The role of the user that is currently logged in.
 	 */
 	public static void logoutUI(User user, Role role) {
 

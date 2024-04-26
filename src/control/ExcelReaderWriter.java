@@ -39,10 +39,6 @@ public class ExcelReaderWriter {
             Workbook workbook = new XSSFWorkbook(file);
             Sheet sheet = workbook.getSheetAt(0);
 
-            /*
-             * ArrayList of Object[] to store the data read from the Excel file. Each
-             * Object[]
-             */
             ArrayList<Object[]> entry = new ArrayList<Object[]>();
 
             for (Row row : sheet) {
@@ -94,15 +90,6 @@ public class ExcelReaderWriter {
     public static boolean writeFile(ArrayList<Object[]> table, String pathName, int noOfCol)
             throws IOException, InvalidFormatException {
         try {
-            /*
-             * @param fin The FileInputStream.
-             * 
-             * @param workbook The Workbook.
-             * 
-             * @param sheet The Sheet.
-             * 
-             * @param size The size of the table.
-             */
             FileInputStream fin = new FileInputStream(pathName);
             Workbook workbook = WorkbookFactory.create(fin);
             Sheet sheet = workbook.createSheet();
@@ -126,15 +113,6 @@ public class ExcelReaderWriter {
 
             fin.close();
 
-            /*
-             * @param fout The FileOutputStream.
-             * Write to file
-             * 
-             * @return true if the data has been successfully written to the Excel file,
-             * false otherwise.
-             * 
-             * @throws IOException If an I/O error occurs.
-             */
             FileOutputStream fout = new FileOutputStream(pathName);
             workbook.write(fout);
             fout.close();
@@ -156,10 +134,6 @@ public class ExcelReaderWriter {
      * @return A boolean value to indicate if the row is empty.
      */
     public static boolean isRowEmpty(Row row) {
-        /*
-         * @param cell The cell.
-         * Check if the row is empty
-         */
         if (row == null || row.getLastCellNum() <= 0) {
             return true;
         }

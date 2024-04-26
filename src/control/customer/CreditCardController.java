@@ -4,13 +4,13 @@ import java.util.Scanner;
 
 import entity.Company;
 
-/*
+/**
  * CreditCardController class is used to control the credit card payment
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
  * @author Melisa Lee
- * @author Rivaldo Billy Sebastian 
+ * @author Rivaldo Billy Sebastian
  * @version 1.0
  * @since 2024-04-26
  */
@@ -59,10 +59,6 @@ public class CreditCardController extends PaymentController {
         if (select == 'C') {
             payment = total;
         }
-
-        /*
-         * @param payment the amount paid by the customer
-         */
         if (processPayment(total, payment)) {
             System.out.printf("Paid: %.2f\n", total);
             System.out.printf("Card No: %s\n", cardNo);
