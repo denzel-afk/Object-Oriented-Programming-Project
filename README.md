@@ -24,8 +24,40 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 
 - `src` contains our source code
 - `data` contains the data we work on
-- `umls` contains the UML diagrams
+- `diagrams` contains the UML diagrams
 
-# Unified Modeling Language
+## Features
+- **User Authentication**: Secure login and password management for staff.
+- **Role-Based Access**: Different interfaces for customer, staff, manager, and admin.
+- **Food Management**: Creation, editing, and deletion of menu items information.
+- **Ordering Management**: Order, pickup, checkout, cancel.
+- **Customization Handling**: Management of custom, including creation, editing, and deletion.
+- **Reports Generation**: Automated generation of reports for staff list and branches details
+- **Extensible UI**: Modular user interface components for flexibility.
+- **Repository Pattern**: For efficient data storage and retrieval.
 
-# Folder Structure
+## Design Principles
+
+1. **Single Responsibility Principle (SRP)**
+   - Focuses on having each class responsible for a single purpose.
+2. **Open Closed Principle (OCP)**
+   - Entities should be open for extension but closed for modification.
+3. **Liskov Substitution Principle (LSP)**
+   - Subtypes must be substitutable for their base types.
+4. **Interface Segregation Principle (ISP)**
+   - Large interfaces should be split into smaller, more specific ones.
+5. **Dependency Injection Principle (DIP)**
+   - High-level modules should not depend on low-level modules but on abstractions.
+
+## Technology Stack
+
+- **Language**: Java
+- **Data Storage**: Microsoft Excel
+
+## UML Class Diagrams
+
+Class diagrams can be found in the `./diagrams` folder:
+
+## Code of Conduct
+
+We are committed to ensuring a welcoming and inclusive environment for everyone. We expect all participants in this project to adhere to our Code of Conduct. Please refer to the [Code of Conduct](CODE_OF_CONDUCT.md) for full details on our expectations and guidelines.
