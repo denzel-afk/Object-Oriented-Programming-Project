@@ -10,7 +10,6 @@ package exception;
  * @version 1.0
  * @since 2021-04-26
  */
-
 public class PromotionException extends Exception {
     /**
      * The serial version UID.
