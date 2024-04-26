@@ -1,8 +1,11 @@
 package control.admin;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 
 import entity.Staff;
 import entity.User;
@@ -187,98 +190,109 @@ public class ManpowerController {
     }
 
     public static void addStaff(Staff staff, Branch branch) throws StaffExistException, AddStaffException {
-        ArrayList<Staff> temStaffs = branch.getStaffList();
-        Role role = staff.getRole();
+        try {
+            ArrayList<Staff> temStaffs = branch.getStaffList();
+            Role role = staff.getRole();
 
-        for (int i = 0; i < temStaffs.size(); i++) {
-            if (temStaffs.get(i).getUserId().equals(staff.getUserId()))
-                throw new StaffExistException();
+            for (int i = 0; i < temStaffs.size(); i++) {
+                if (temStaffs.get(i).getUserId().equals(staff.getUserId()))
+                    throw new StaffExistException();
+            }
+
+            int quota = 0;
+            if (role.equals(Role.MANAGER)) {
+                quota = (branch.getNumStaff() + 3) / 4;
+                if (branch.getNumManager() >= quota)
+                    throw new AddStaffException("Manager limit reached");
+            } else {
+                quota = branch.getStaffQuota();
+                if (branch.getNumStaff() >= quota)
+                    throw new AddStaffException("Staff limit reached");
+            }
+
+            temStaffs.add(staff);
+            branch.setStaffList(temStaffs);
+
+            int numStaff = branch.getNumStaff();
+            int numManager = branch.getNumManager();
+
+            if (role.equals(Role.MANAGER)) {
+                numManager += 1;
+            } else
+                numStaff += 1;
+
+            branch.setNumManager(numManager);
+            branch.setNumStaff(numStaff);
+
+            // write to database, to be implemented
+            ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/staff_list_updated.xlsx", 6);
+            Object[] toWrite = new Object[6];
+
+            toWrite[0] = staff.getUserName();
+            toWrite[1] = staff.getUserId();
+            toWrite[2] = (role == Role.STAFF) ? "S" : "M";
+            toWrite[3] = staff.getGender();
+            toWrite[4] = (double) staff.getAge();
+            toWrite[5] = branch.getBranchName();
+
+            table.add(toWrite);
+
+            boolean success = ExcelReaderWriter.writeFile(table, "data/staff_list_updated.xlsx", 6);
+
+            return;
+        } catch (IOException | InvalidFormatException e) {
+            // Handle the exceptions
+            e.printStackTrace(); // or any other error handling mechanism
+            // Optionally, rethrow the exception if you want the caller to handle it
+            // throw e;
         }
-
-        int quota = 0;
-        if (role.equals(Role.MANAGER)) {
-            quota = (branch.getNumStaff() + 3) / 4;
-            if (branch.getNumManager() >= quota)
-                throw new AddStaffException("Manager limit reached");
-        } else {
-            quota = branch.getStaffQuota();
-            if (branch.getNumStaff() >= quota)
-                throw new AddStaffException("Staff limit reached");
-        }
-
-        temStaffs.add(staff);
-        branch.setStaffList(temStaffs);
-
-        int numStaff = branch.getNumStaff();
-        int numManager = branch.getNumManager();
-
-        if (role.equals(Role.MANAGER)) {
-            numManager += 1;
-        } else
-            numStaff += 1;
-
-        branch.setNumManager(numManager);
-        branch.setNumStaff(numStaff);
-
-        // write to database, to be implemented
-        ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/staff_list_updated.xlsx", 6);
-        Object[] toWrite = new Object[6];
-
-        toWrite[0] = staff.getUserName();
-        toWrite[1] = staff.getUserId();
-        toWrite[2] = (role == Role.STAFF) ? "S" : "M";
-        toWrite[3] = staff.getGender();
-        toWrite[4] = (double) staff.getAge();
-        toWrite[5] = branch.getBranchName();
-
-        table.add(toWrite);
-
-        boolean success = ExcelReaderWriter.writeFile(table, "data/staff_list_updated.xlsx", 6);
-
-        return;
-
     }
 
     public static void deleteStaff(Staff staff) {
+        try {
+            String branchName = staff.getBranchName();
+            Branch branch = Company.getBranch().get(branchName);
+            ArrayList<Staff> temStaffs = branch.getStaffList();
+            temStaffs.remove(staff);
+            branch.setStaffList(temStaffs);
 
-        String branchName = staff.getBranchName();
-        Branch branch = Company.getBranch().get(branchName);
-        ArrayList<Staff> temStaffs = branch.getStaffList();
-        temStaffs.remove(staff);
-        branch.setStaffList(temStaffs);
+            int numStaff = branch.getNumStaff();
+            int numManager = branch.getNumManager();
 
-        int numStaff = branch.getNumStaff();
-        int numManager = branch.getNumManager();
+            if (staff.getRole().equals(Role.MANAGER)) {
+                numManager -= 1;
+            } else
+                numStaff -= 1;
 
-        if (staff.getRole().equals(Role.MANAGER)) {
-            numManager -= 1;
-        } else
-            numStaff -= 1;
+            branch.setNumManager(numManager);
+            branch.setNumStaff(numStaff);
 
-        branch.setNumManager(numManager);
-        branch.setNumStaff(numStaff);
+            // write to database, to be implemented
+            ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/staff_list_updated.xlsx", 6);
 
-        // write to database, to be implemented
-        ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/staff_list_updated.xlsx", 6);
+            Role role = staff.getRole();
+            Object[] toDelete = new Object[6];
 
-        Role role = staff.getRole();
-        Object[] toDelete = new Object[6];
+            toDelete[0] = staff.getUserName();
+            toDelete[1] = staff.getUserId();
+            toDelete[2] = (role == Role.STAFF) ? "S" : "M";
+            toDelete[3] = staff.getGender();
+            toDelete[4] = (double) staff.getAge();
+            toDelete[5] = branch.getBranchName();
 
-        toDelete[0] = staff.getUserName();
-        toDelete[1] = staff.getUserId();
-        toDelete[2] = (role == Role.STAFF) ? "S" : "M";
-        toDelete[3] = staff.getGender();
-        toDelete[4] = (double) staff.getAge();
-        toDelete[5] = branch.getBranchName();
-
-        for (int i = 0; i < table.size(); i++) {
-            if (table.get(i)[1].equals(toDelete[1])) {
-                table.remove(i);
-                break;
+            for (int i = 0; i < table.size(); i++) {
+                if (table.get(i)[1].equals(toDelete[1])) {
+                    table.remove(i);
+                    break;
+                }
             }
+
+            ExcelReaderWriter.writeFile(table, "data/staff_list_updated.xlsx", 6);
+        } catch (IOException | InvalidFormatException e) {
+            // Handle the exceptions
+            e.printStackTrace(); // or any other error handling mechanism
+            // Optionally, rethrow the exception if you want the caller to handle it
+            // throw e;
         }
-
-        ExcelReaderWriter.writeFile(table, "data/staff_list_updated.xlsx", 6);
     }
-
 }

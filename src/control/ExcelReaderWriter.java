@@ -6,8 +6,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
 
 public class ExcelReaderWriter {
     public static ArrayList<Object[]> readFile(String pathName, int noOfCols) {
@@ -53,21 +55,20 @@ public class ExcelReaderWriter {
         }
     }
 
-    public static boolean writeFile(ArrayList<Object[]> table, String pathName, int noOfCol) {
+    public static boolean writeFile(ArrayList<Object[]> table, String pathName, int noOfCol)
+            throws IOException, InvalidFormatException {
         try {
-            // Create a temporary file
-            String tempFileName = pathName + "_temp";
-            FileOutputStream fout = new FileOutputStream(tempFileName);
-
-            Workbook workbook = new XSSFWorkbook();
+            FileInputStream fin = new FileInputStream(pathName);
+            Workbook workbook = WorkbookFactory.create(fin);
             Sheet sheet = workbook.createSheet();
+            workbook.removeSheetAt(0);
 
             int size = table.size();
 
-            // Create rows and write data
+            // Create row and write data
             for (int i = 0; i < size; i++) {
                 Object[] col = table.get(i);
-                Row row = sheet.createRow(i);
+                Row row = sheet.createRow(sheet.getLastRowNum() + 1);
 
                 for (int j = 0; j < noOfCol; j++) {
                     Cell cell = row.createCell(j);
@@ -78,22 +79,18 @@ public class ExcelReaderWriter {
                 }
             }
 
+            fin.close();
+
+            FileOutputStream fout = new FileOutputStream(pathName);
             workbook.write(fout);
             fout.close();
             workbook.close();
 
-            // Replace original file with the temporary file
-            File originalFile = new File(pathName);
-            File tempFile = new File(tempFileName);
-            if (tempFile.renameTo(originalFile)) {
-                System.out.println("Successfully written to file!");
-                return true;
-            } else {
-                System.out.println("Failed to write to file!");
-                return false;
-            }
+            System.out.println("Successfully written to file!");
+            return true;
         } catch (IOException e) {
             System.out.println("Failed to write to file!");
+            e.printStackTrace();
             return false;
         }
     }
