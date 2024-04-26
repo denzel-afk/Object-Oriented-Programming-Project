@@ -55,7 +55,7 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 - **Data Storage**: Microsoft Excel
 
 ## Documentation
-For detailed documentation, refer to the ./src directory.
+For detailed documentation, refer to the `./src` directory.
 
 ## UML Class Diagrams
 
