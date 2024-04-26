@@ -15,7 +15,7 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 ## Team Members
 <table>
   <tr>
-    <td align="center"><a href="https://github.com/denzel-afk" target="_blank"><img src="https://avatars.githubusercontent.com/u/28054629?v=4 s=150" width="150px;" alt=""/></a><br /><sub><b>Denzel Elden Wijaya</b></sub><br /></td>
+    <td align="center"><a href="https://github.com/denzel-afk" target="_blank"></a><br /><sub><b>Denzel Elden Wijaya</b></sub><br /></td>
 
   </tr>
 </table>
