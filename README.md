@@ -28,6 +28,7 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 - **Customization Handling**: Management of custom, including creation, editing, and deletion.
 - **Reports Generation**: Automated generation of reports for staff list and branches details
 - **Extensible UI**: Modular user interface components for flexibility.
+- **Repository Pattern**: For efficient data storage and retrieval.
 
 ## Design Principles
 
