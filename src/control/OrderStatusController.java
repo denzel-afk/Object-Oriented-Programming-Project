@@ -56,7 +56,7 @@ public class OrderStatusController
                 String key = e.getKey();
 
                 if ((order.getStatus() == OrderStatus.READY_TO_PICKUP)
-                        && (System.currentTimeMillis() - order.getTimeElapsed() > 1000000000)) {
+                        && (System.currentTimeMillis() - order.getTimeElapsed() > 100000)) {
                     orderList.remove(key);
                     order.setStatus(OrderStatus.CANCELLED);
                     orderList.put(key, order);
