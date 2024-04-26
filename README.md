@@ -13,12 +13,12 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 [Please refer to the PDF file]
 
 ## Team Members
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/denzel-afk" target="_blank"></a><br /><sub><b>Denzel Elden Wijaya</b></sub><br /></td>
+<ol>
+  <li><a href="github.com/denzel-afk">Denzel Elden Wijaya</a></li>
+  <li>Melisa Lee</li>
+  <li></li>
+</ol>
 
-  </tr>
-</table>
 # Unified Modeling Language
 
 # Folder Structure
