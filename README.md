@@ -17,7 +17,7 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
   <li><a href="https://github.com/denzel-afk">Denzel Elden Wijaya</a></li>
   <li><a href="https://github.com/melee01">Melisa Lee</a></li>
   <li><a href="https://github.com/jehantoro">Federrico Hansen Budianto</a></li>
-  <li><a href="">Rivaldo Billy Sebastian</a></li>
+  <li><a href="https://github.com/rivaldobilly">Rivaldo Billy Sebastian</a></li>
 </ol>
 
 ## Folder Structure
