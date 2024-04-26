@@ -21,11 +21,10 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 </ol>
 
 ## Folder Structure
-<ul>
-  <li>'src' contains our source code</li>
-  <li>'data' contains the data we work on</li>
-  <li>'umls' contains the UML diagrams</li>
-</ul>
+
+- `src` contains our source code
+- `data` contains the data we work on
+- `umls` contains the UML diagrams
 
 # Unified Modeling Language
 
