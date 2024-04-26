@@ -1,6 +1,6 @@
 <div align="center">
 
-  # Fastfood Ordering and Management System (FOMS) <br/> <br/> SC2002 Project
+  # Fastfood Ordering and Management System (FOMS) <br/> SC2002 Project
 
 </div>
 <br/>
