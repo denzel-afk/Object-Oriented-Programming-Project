@@ -54,10 +54,10 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 - **Language**: Java
 - **Data Storage**: Microsoft Excel
 
+## Documentation
+For detailed documentation, refer to the ./src directory.
+
 ## UML Class Diagrams
 
 Class diagrams can be found in the `./diagrams` folder:
 
-## Code of Conduct
-
-We are committed to ensuring a welcoming and inclusive environment for everyone. We expect all participants in this project to adhere to our Code of Conduct. Please refer to the [Code of Conduct](CODE_OF_CONDUCT.md) for full details on our expectations and guidelines.
