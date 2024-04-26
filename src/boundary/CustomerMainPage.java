@@ -12,11 +12,35 @@ import control.customer.OrderCollectionInterface;
 import control.customer.OrderCreationController;
 import control.customer.PayNowController;
 
+/**
+ * CustomerMainPage class is used to display the main page for the customer to
+ * interact with the system. The customer can view their order status, collect
+ * their order, and create a new order.
+ * 
+ * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian
+ * @version 1.0
+ * @since 2024-04-26
+ */
+
 public class CustomerMainPage {
 
   static Scanner sc = new Scanner(System.in);
+
+  /*
+   * @param branchName the name of the branch
+   * 
+   * @param orderID the order ID
+   */
   private static String branchName, orderID;
 
+  /*
+   * This method is used to display the main page for the customer to interact
+   * with the system. The customer can view their order status, collect their
+   * order, and create a new order.
+   */
   public static void CustomerMainPageUI() {
 
     System.out.println("Welcome Customer!\nPlease enter Branch by their name:\n");
@@ -49,8 +73,30 @@ public class CustomerMainPage {
 
   }
 
+  /*
+   * This method is used to create a new order
+   * 
+   * @param branchName The name of the branch
+   */
   public static void newOrderProcess(String branchName) {
 
+    /*
+     * @param viewer The viewer interface
+     * 
+     * @param checkout The checkout interface
+     * 
+     * @param takeaway The takeaway option
+     * 
+     * @param choice The choice of the customer
+     * 
+     * @param qty The quantity of the item
+     * 
+     * @param index The index of the item
+     * 
+     * @param remarks The remarks of the item
+     * 
+     * @param text The text input
+     */
     CustomerViewInterface viewer = new OrderViewController();
     OrderCheckOutInterface checkout = new OrderStatusController();
     int takeaway, choice, qty, index;
@@ -61,6 +107,13 @@ public class CustomerMainPage {
       takeaway = sc.nextInt();
     } while (takeaway < 1 || takeaway > 2);
 
+    /*
+     * @param orderID The order ID
+     * 
+     * @param branchName The name of the branch
+     * 
+     * @param takeaway The takeaway option
+     */
     orderID = OrderCreationController.createOrder(branchName, ((takeaway == 1) ? false : true));
 
     do {
@@ -145,7 +198,15 @@ public class CustomerMainPage {
     } while (choice >= 1 && choice <= 5);
   }
 
+  /*
+   * This method is used to view the order status
+   */
   public static void viewOrderStatus(String branchName) {
+    /*
+     * @param viewer The viewer interface
+     * 
+     * @param orderID The order ID
+     */
     CustomerViewInterface viewer = new OrderViewController();
     System.out.println("Please input your OrderID to view your Order's status:  ");
     String orderID = sc.next();
@@ -153,7 +214,15 @@ public class CustomerMainPage {
     viewer.viewOrderStatus(branchName, orderID);
   }
 
+  /*
+   * This method is used to collect the order
+   */
   public static void collectOrder(String branchName) {
+    /*
+     * @param collect The collect interface
+     * 
+     * @param orderID The order ID
+     */
     OrderCollectionInterface collect = new OrderStatusController();
     System.out.println("Please input your OrderID to collect your order:  ");
     String orderID = sc.next();

@@ -13,20 +13,60 @@ import exception.BranchNotExistException;
 import exception.MenuException;
 import exception.OrderException;
 
+/**
+ * OrderCreationController class is used to control the order creation functions
+ * 
+ * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian
+ * @version 1.0
+ * @since 2024-04-26
+ */
+
 public class OrderCreationController {
+
+    /*
+     * @param id The order ID.
+     */
     private static int id = 100;
     // this id will increase when a new order is creeated, makes the order unique
 
+    /**
+     * This method is used to create an order.
+     * 
+     * @param branchName The branch name.
+     * @param takeaway   The boolean value to check if the order is takeaway.
+     * @return The order ID.
+     */
     public static String createOrder(String branchName, boolean takeaway) {
         try {
             Branch branch = Company.getBranch().get(branchName);
+            /*
+             * Check if the branch exists
+             */
             if (branch == null)
                 throw new BranchNotExistException();
 
+            /*
+             * Check if the order list is empty
+             */
             HashMap<String, Order> orderList = branch.getOrders();
+            /*
+             * Check if the order list is empty
+             */
             if (orderList == null)
                 throw new OrderException();
 
+            /*
+             * @param order The order.
+             * 
+             * @param orderID The order ID.
+             * 
+             * @param takeaway The boolean value to check if the order is takeaway.
+             * 
+             * @return The order ID.
+             */
             Order order = new Order(takeaway);
             String orderID = String.valueOf(id++);
             orderList.put(orderID, order);
@@ -38,12 +78,32 @@ public class OrderCreationController {
         }
     }
 
+    /**
+     * This method is used to edit an order.
+     * 
+     * @param branchName The branch name.
+     * @param orderID    The order ID.
+     * @param index      The index.
+     * @param quantity   The quantity.
+     * @param remarks    The remarks.
+     */
     public static void editOrder(String branchName, String orderID, int index, int quantity, String remarks) {
         try {
+            /*
+             * @param branch The branch.
+             * check if the branch exists
+             */
             Branch branch = Company.getBranch().get(branchName);
             if (branch == null)
                 throw new BranchNotExistException();
-
+            /*
+             * @param orderList The order list.
+             * check if the order list is empty
+             * 
+             * @param order The order.
+             * 
+             * @param orderList The order list.
+             */
             HashMap<String, Order> orderList = branch.getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();
@@ -51,6 +111,10 @@ public class OrderCreationController {
             Order order = orderList.get(orderID);
             orderList.remove(orderID);
 
+            /*
+             * @param orderItems The order items.
+             * check if the index is valid
+             */
             ArrayList<OrderItem> orderItems = order.getItems();
             if (index > orderItems.size())
                 throw new OrderException("Row number invalid!");
@@ -74,24 +138,59 @@ public class OrderCreationController {
         }
     }
 
+    /**
+     * This method is used to add an item to the order.
+     * 
+     * @param branchName The branch name.
+     * @param orderID    The order ID.
+     * @param index      The index.
+     * @param quantity   The quantity.
+     * @param remarks    The remarks.
+     */
     public static void addToOrder(String branchName, String orderID, int index, int quantity, String remarks) {
 
         try {
+            /*
+             * @param branch The branch.
+             * check if the branch exists
+             */
             Branch branch = Company.getBranch().get(branchName);
             if (branch == null)
                 throw new BranchNotExistException();
 
+            /*
+             * @param orderList The order list.
+             * check if the order list is empty
+             * 
+             * @param order The order.
+             * 
+             * @param orderList The order list.
+             */
             HashMap<String, Order> orderList = branch.getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();
 
+            /*
+             * @param order The order.
+             * 
+             * @param orderID The order ID.
+             */
             Order order = orderList.get(orderID);
             ArrayList<OrderItem> orderItems = order.getItems();
 
+            /*
+             * @param menu The menu.
+             * check if the index is valid
+             */
             ArrayList<MenuItem> menu = branch.getMenuItems();
             if (index > menu.size())
                 throw new MenuException("Row number invalid!");
 
+            /*
+             * @param menuItem The menu item.
+             * 
+             * @param item The order item.
+             */
             MenuItem menuItem = menu.get(index - 1);
 
             OrderItem item = new OrderItem(menuItem, quantity, remarks);
@@ -108,12 +207,31 @@ public class OrderCreationController {
         }
     }
 
+    /**
+     * This method is used to delete an item from the order.
+     * 
+     * @param branchName The branch name.
+     * @param orderID    The order ID.
+     * @param index      The index.
+     */
     public static void deleteFromOrder(String branchName, String orderID, int index) {
         try {
+            /*
+             * @param branch The branch.
+             * check if the branch exists
+             */
             Branch branch = Company.getBranch().get(branchName);
             if (branch == null)
                 throw new BranchNotExistException();
 
+            /*
+             * @param orderList The order list.
+             * check if the order list is empty
+             * 
+             * @param order The order.
+             * 
+             * @param orderList The order list.
+             */
             HashMap<String, Order> orderList = branch.getOrders();
             if (orderList == null || orderList.size() <= 0)
                 throw new OrderException();

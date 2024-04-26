@@ -11,13 +11,38 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 
+/**
+ * ExcelReaderWriter class is used to read and write data from and to an Excel
+ * file.
+ * 
+ * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian
+ * @version 1.0
+ * @since 2024-04-26
+ */
+
 public class ExcelReaderWriter {
+
+    /**
+     * The readFile method is used to read data from an Excel file.
+     * 
+     * @param pathName The path of the Excel file.
+     * @param noOfCols The number of columns in the Excel file.
+     * @return An ArrayList of Object[] containing the data read from the Excel
+     *         file.
+     */
     public static ArrayList<Object[]> readFile(String pathName, int noOfCols) {
         try {
             FileInputStream file = new FileInputStream(pathName);
             Workbook workbook = new XSSFWorkbook(file);
             Sheet sheet = workbook.getSheetAt(0);
 
+            /*
+             * ArrayList of Object[] to store the data read from the Excel file. Each
+             * Object[]
+             */
             ArrayList<Object[]> entry = new ArrayList<Object[]>();
 
             for (Row row : sheet) {
@@ -55,9 +80,29 @@ public class ExcelReaderWriter {
         }
     }
 
+    /**
+     * The writeFile method is used to write data to an Excel file.
+     * 
+     * @param table    The data to be written to the Excel file.
+     * @param pathName The path of the Excel file.
+     * @param noOfCol  The number of columns in the Excel file.
+     * @return A boolean value to indicate if the data has been successfully written
+     *         to the Excel file.
+     * @throws IOException            If an I/O error occurs.
+     * @throws InvalidFormatException If the format of the Excel file is invalid.
+     */
     public static boolean writeFile(ArrayList<Object[]> table, String pathName, int noOfCol)
             throws IOException, InvalidFormatException {
         try {
+            /*
+             * @param fin The FileInputStream.
+             * 
+             * @param workbook The Workbook.
+             * 
+             * @param sheet The Sheet.
+             * 
+             * @param size The size of the table.
+             */
             FileInputStream fin = new FileInputStream(pathName);
             Workbook workbook = WorkbookFactory.create(fin);
             Sheet sheet = workbook.createSheet();
@@ -81,6 +126,15 @@ public class ExcelReaderWriter {
 
             fin.close();
 
+            /*
+             * @param fout The FileOutputStream.
+             * Write to file
+             * 
+             * @return true if the data has been successfully written to the Excel file,
+             * false otherwise.
+             * 
+             * @throws IOException If an I/O error occurs.
+             */
             FileOutputStream fout = new FileOutputStream(pathName);
             workbook.write(fout);
             fout.close();
@@ -95,7 +149,17 @@ public class ExcelReaderWriter {
         }
     }
 
+    /**
+     * The isRowEmpty method is used to check if a row is empty.
+     * 
+     * @param row The row to be checked.
+     * @return A boolean value to indicate if the row is empty.
+     */
     public static boolean isRowEmpty(Row row) {
+        /*
+         * @param cell The cell.
+         * Check if the row is empty
+         */
         if (row == null || row.getLastCellNum() <= 0) {
             return true;
         }

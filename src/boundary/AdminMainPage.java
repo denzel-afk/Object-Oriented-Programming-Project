@@ -12,12 +12,29 @@ import entity.Staff;
 import entity.User;
 import exception.*;
 
+/*
+ * AdminMainPage class is used to display the main page for the admin user.
+ * 
+ * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian
+ * @version 1.0
+ * @since 2024-04-26
+ */
+
 public class AdminMainPage {
 
 	static Scanner sc = new Scanner(System.in);
 
 	// class methods below
 	// AdminUI is Command Line Interface
+	// AdminUI is the main page for the admin user
+	/*
+	 * AdminUI is the main page for the admin user. The admin user can choose to
+	 * edit manpower-related, branch-related, payment-related, change password, or
+	 * log out.
+	 */
 	public static void AdminUI(User user) {
 
 		System.out.println("-----Admin-----");
@@ -55,6 +72,10 @@ public class AdminMainPage {
 
 	}
 
+	/*
+	 * categoryChoice method is used to display the categories that the admin user
+	 * can choose to edit.
+	 */
 	public static int categoryChoice() {
 
 		System.out.println("What category would you like to edit? (1-5 only)");
@@ -70,6 +91,10 @@ public class AdminMainPage {
 
 	}
 
+	/*
+	 * manpowerActions method is used to display the manpower-related actions that
+	 * the admin user can choose to edit.
+	 */
 	public static void manpowerActions() {
 
 		System.out.println("0: Display staff list");
@@ -109,6 +134,10 @@ public class AdminMainPage {
 
 	}
 
+	/*
+	 * displayStaff method is used to display the staff list based on the filter
+	 * that the admin user chooses.
+	 */
 	public static void displayStaff() {
 
 		System.out.println("Filter by (1-4 only)\n"
@@ -136,6 +165,9 @@ public class AdminMainPage {
 
 	}
 
+	/*
+	 * addStaff method is used to add a new staff to a branch.
+	 */
 	public static void addStaff() {
 
 		sc.nextLine();
@@ -187,8 +219,14 @@ public class AdminMainPage {
 		return;
 	}
 
+	/*
+	 * removeStaff method is used to remove a staff from a branch.
+	 */
 	public static void removeStaff() {
 
+		/*
+		 * Display staff list by branch
+		 */
 		AdminController.displayStaffByBranch();
 		System.out.println("\nEnter the staff login ID to be removed: ");
 		String staffID = sc.next();
@@ -212,8 +250,14 @@ public class AdminMainPage {
 		return;
 	}
 
+	/*
+	 * editStaff method is used to edit a staff's details.
+	 */
 	public static void editStaff() {
 
+		/*
+		 * Display staff list by branch
+		 */
 		AdminController.displayStaffByBranch();
 		System.out.println("\nEnter the staff login ID: ");
 		String staffID = sc.next();
@@ -236,6 +280,7 @@ public class AdminMainPage {
 			Staff staff = (Staff) user;
 
 			int choice = sc.nextInt();
+
 			switch (choice) {
 				case 1:
 					System.out.println("Enter edited username: ");
@@ -287,8 +332,14 @@ public class AdminMainPage {
 		return;
 	}
 
+	/*
+	 * transferStaff method is used to transfer a staff to another branch.
+	 */
 	public static void transferStaff() {
 
+		/*
+		 * Display staff list by branch
+		 */
 		AdminController.displayStaffByBranch();
 		System.out.println("\nEnter staff ID to be transferred: ");
 		String staffID = sc.next();
@@ -332,8 +383,14 @@ public class AdminMainPage {
 		return;
 	}
 
+	/*
+	 * promoteStaff method is used to promote a staff to manager.
+	 */
 	public static void promoteStaff() {
 
+		/*
+		 * Display staff list by branch
+		 */
 		AdminController.displayStaffByBranch();
 		System.out.println("\nEnter staff ID to be promoted: ");
 		String staffID = sc.next();
@@ -362,6 +419,10 @@ public class AdminMainPage {
 		}
 	}
 
+	/*
+	 * branchActions method is used to display the branch-related actions that the
+	 * admin user can choose to edit.
+	 */
 	public static void branchActions() {
 
 		System.out.println("0: Display existing branch");
@@ -387,6 +448,9 @@ public class AdminMainPage {
 		return;
 	}
 
+	/*
+	 * openBranch method is used to open a new branch.
+	 */
 	public static void openBranch() {
 
 		Scanner sc = new Scanner(System.in);
@@ -415,7 +479,13 @@ public class AdminMainPage {
 		return;
 	}
 
+	/*
+	 * closeBranch method is used to close an existing branch.
+	 */
 	public static void closeBranch() {
+		/*
+		 * Display branch list
+		 */
 		CompanyController.displayBranch();
 		System.out.println("\nEnter the branch key to be closed.");
 		String branchKey = sc.next();
@@ -439,6 +509,10 @@ public class AdminMainPage {
 		return;
 	}
 
+	/*
+	 * paymentActions method is used to display the payment-related actions that the
+	 * admin user can choose to edit.
+	 */
 	public static int paymentActions() {
 
 		System.out.println("0: Display existing payment methods");
@@ -449,6 +523,8 @@ public class AdminMainPage {
 		int paymentAction = sc.nextInt();
 
 		/*
+		 * The following code is commented out for test-case purpose
+		 * 
 		 * switch(paymentAction) {
 		 * case 0:
 		 * PaymentController.displayPaymentMethods();

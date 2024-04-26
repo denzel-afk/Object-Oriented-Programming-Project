@@ -17,8 +17,22 @@ import entity.Branch;
 import entity.Company;
 import control.ExcelReaderWriter;
 
+/**
+ * ManpowerController class is used to control the manpower functions
+ * 
+ * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian
+ * @version 1.0
+ * @since 2024-04-26
+ */
+
 public class ManpowerController {
 
+    /**
+     * The displayStaffByBranch method is used to display the staff by branch
+     */
     public static void displayStaffByBranch() {
         System.out.println("Filtered by Branch");
 
@@ -29,6 +43,11 @@ public class ManpowerController {
         System.out.printf("%-8s", "GENDER");
         System.out.printf("%-7s %n", "AGE");
 
+        /*
+         * The branch object is used to store the branch object that is returned from
+         * the
+         * getBranch method.
+         */
         for (Branch branch : Company.getBranch().values()) {
             for (Staff staff : branch.getStaffList()) {
                 System.out.printf("%-10s", staff.getBranchName());
@@ -42,6 +61,9 @@ public class ManpowerController {
         }
     }
 
+    /**
+     * The displayStaffByRole method is used to display the staff by role
+     */
     public static void displayStaffByRole() {
         System.out.println("Filtered by Role");
 
@@ -52,6 +74,10 @@ public class ManpowerController {
         System.out.printf("%-8s", "GENDER");
         System.out.printf("%-7s %n", "AGE");
 
+        /*
+         * The admin object is used to store the admin object that is returned from the
+         * getAdmin method.
+         */
         for (Admin admin : Company.getAdmin()) {
             System.out.printf("%-10s", admin.getRole());
             System.out.printf("%-19s", admin.getUserName());
@@ -62,9 +88,16 @@ public class ManpowerController {
         }
 
         System.out.println("");
-
+        /*
+         * The branch object is used to store the branch object that is returned from
+         * the
+         * getBranch method.
+         */
         for (Branch branch : Company.getBranch().values()) {
-
+            /*
+             * The staff object is used to store the staff object that is returned from the
+             * getStaffList method.
+             */
             for (Staff staff : branch.getStaffList()) {
                 if (staff.getRole() == Role.STAFF) {
                     System.out.printf("%-10s", staff.getRole());
@@ -78,9 +111,16 @@ public class ManpowerController {
         }
 
         System.out.println("");
-
+        /*
+         * The branch object is used to store the branch object that is returned from
+         * the
+         * getBranch method.
+         */
         for (Branch branch : Company.getBranch().values()) {
-
+            /*
+             * The staff object is used to store the staff object that is returned from the
+             * getStaffList method.
+             */
             for (Staff staff : branch.getStaffList()) {
                 if (staff.getRole() == Role.MANAGER) {
                     System.out.printf("%-10s", staff.getRole());
@@ -96,6 +136,9 @@ public class ManpowerController {
         System.out.println("");
     }
 
+    /*
+     * The displayStaffByGender method is used to display the staff
+     */
     public static void displayStaffByGender() {
 
         String[] genderArray = { "M", "F" };
@@ -108,9 +151,16 @@ public class ManpowerController {
         System.out.printf("%-10s", "BRANCH");
         System.out.printf("%-10s", "ROLE");
         System.out.printf("%-7s %n", "AGE");
-
+        /*
+         * The genderArray object is used to store the genderArray object that is
+         * returned
+         * from the getAdmin and getStaffList method.
+         */
         for (String s : genderArray) {
-
+            /*
+             * The admin object is used to store the admin object that is returned from the
+             * getAdmin method.
+             */
             for (Admin admin : Company.getAdmin()) {
                 if (admin.getGender().equals(s)) {
                     System.out.printf("%-8s", admin.getGender());
@@ -121,9 +171,16 @@ public class ManpowerController {
                     System.out.printf("%-7s %n", admin.getAge());
                 }
             }
-
+            /*
+             * The branch object is used to store the branch object that is returned from
+             * the
+             * getBranch method.
+             */
             for (Branch branch : Company.getBranch().values()) {
-
+                /*
+                 * The staff object is used to store the staff object that is returned from the
+                 * getStaffList method.
+                 */
                 for (Staff staff : branch.getStaffList()) {
                     if (staff.getGender().equals(s)) {
                         System.out.printf("%-8s", staff.getGender());
@@ -141,14 +198,28 @@ public class ManpowerController {
 
     @SuppressWarnings("unchecked")
     public static void displayStaffByAge() {
-
+        /*
+         * The allStaffList object is used to store the allStaffList object that is
+         * returned from the getAdmin and getStaffList method.
+         */
         ArrayList<User> allStaffList = new ArrayList<>();
-
+        /*
+         * The admin object is used to store the admin object that is returned from the
+         * getAdmin method.
+         */
         for (Admin admin : Company.getAdmin()) {
             allStaffList.add(admin);
         }
-
+        /*
+         * The branch object is used to store the branch object that is returned from
+         * the
+         * getBranch method.
+         */
         for (Branch branch : Company.getBranch().values()) {
+            /*
+             * The staff object is used to store the staff object that is returned from the
+             * getStaffList method.
+             */
             for (Staff staff : branch.getStaffList()) {
                 allStaffList.add(staff);
             }
@@ -165,8 +236,20 @@ public class ManpowerController {
         System.out.printf("%-10s", "ROLE");
         System.out.printf("%-8s %n", "GENDER");
 
+        /*
+         * The allStaffList object is used to store the allStaffList object that is
+         * returned from the getAdmin and getStaffList method.
+         */
         for (User user : allStaffList) {
+            /*
+             * The admin object is used to store the admin object that is returned from the
+             * getAdmin method.
+             */
             if (user instanceof Admin) {
+                /*
+                 * The tempAdmin object is used to store the tempAdmin object that is returned
+                 * from the getAdmin method.
+                 */
                 Admin tempAdmin = (Admin) user;
 
                 System.out.printf("%-7s", tempAdmin.getAge());
@@ -176,6 +259,10 @@ public class ManpowerController {
                 System.out.printf("%-10s", tempAdmin.getRole());
                 System.out.printf("%-8s %n", tempAdmin.getGender());
             } else {
+                /*
+                 * The staff object is used to store the staff object that is returned from the
+                 * getStaffList method.
+                 */
                 Staff staff = (Staff) user;
 
                 System.out.printf("%-7s", staff.getAge());
@@ -189,16 +276,35 @@ public class ManpowerController {
         System.out.println("");
     }
 
+    /**
+     * The transferStaff method is used to transfer the staff to another branch
+     * 
+     * @param staff     The staff object
+     * @param branchKey The branch key
+     * @throws StaffExistException
+     * @throws AddStaffException
+     */
     public static void addStaff(Staff staff, Branch branch) throws StaffExistException, AddStaffException {
         try {
+            /*
+             * The tempStaff object is used to store the staff object that is returned from
+             * the checkValid method.
+             */
             ArrayList<Staff> temStaffs = branch.getStaffList();
+            /*
+             * The role object is used to store the role object that is returned from the
+             * getRole method.
+             */
             Role role = staff.getRole();
 
             for (int i = 0; i < temStaffs.size(); i++) {
                 if (temStaffs.get(i).getUserId().equals(staff.getUserId()))
                     throw new StaffExistException();
             }
-
+            /*
+             * The quota object is used to store the quota object that is returned from the
+             * getStaffQuota method.
+             */
             int quota = 0;
             if (role.equals(Role.MANAGER)) {
                 quota = (branch.getNumStaff() + 3) / 4;
@@ -209,10 +315,18 @@ public class ManpowerController {
                 if (branch.getNumStaff() >= quota)
                     throw new AddStaffException("Staff limit reached");
             }
-
+            /*
+             * The temStaffs object is used to store the temStaffs object that is returned
+             * from the getStaffList method.
+             */
             temStaffs.add(staff);
             branch.setStaffList(temStaffs);
 
+            /*
+             * The numStaff object is used to store the numStaff object that is returned
+             * from
+             * the getNumStaff method.
+             */
             int numStaff = branch.getNumStaff();
             int numManager = branch.getNumManager();
 
@@ -225,6 +339,10 @@ public class ManpowerController {
             branch.setNumStaff(numStaff);
 
             // write to database, to be implemented
+            /*
+             * The table object is used to store the table object that is returned from the
+             * readFile method.
+             */
             ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/staff_list_updated.xlsx", 6);
             Object[] toWrite = new Object[6];
 
@@ -237,6 +355,10 @@ public class ManpowerController {
 
             table.add(toWrite);
 
+            /*
+             * The writeFile method is used to write the table object to the microsoft excel
+             * file.
+             */
             boolean success = ExcelReaderWriter.writeFile(table, "data/staff_list_updated.xlsx", 6);
 
             return;
@@ -248,14 +370,32 @@ public class ManpowerController {
         }
     }
 
+    /**
+     * The deleteStaff method is used to delete the staff
+     * 
+     * @param staff The staff object
+     */
     public static void deleteStaff(Staff staff) {
         try {
+            /*
+             * The branchName object is used to store the branchName object that is returned
+             * from the getBranchName method.
+             */
             String branchName = staff.getBranchName();
             Branch branch = Company.getBranch().get(branchName);
+            /*
+             * The temStaffs object is used to store the temStaffs object that is returned
+             * from the getStaffList method.
+             */
             ArrayList<Staff> temStaffs = branch.getStaffList();
             temStaffs.remove(staff);
             branch.setStaffList(temStaffs);
 
+            /*
+             * @param numStaff The number of staff in the branch.
+             * 
+             * @param numManager The number of manager in the branch.
+             */
             int numStaff = branch.getNumStaff();
             int numManager = branch.getNumManager();
 
@@ -268,8 +408,16 @@ public class ManpowerController {
             branch.setNumStaff(numStaff);
 
             // write to database, to be implemented
+            /*
+             * The table object is used to store the table object that is returned from the
+             * readFile method.
+             */
             ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/staff_list_updated.xlsx", 6);
 
+            /*
+             * The role object is used to store the role object that is returned from the
+             * getRole method.
+             */
             Role role = staff.getRole();
             Object[] toDelete = new Object[6];
 

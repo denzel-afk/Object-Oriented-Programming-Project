@@ -9,9 +9,32 @@ import entity.Branch;
 import entity.Staff;
 import entity.Role;
 
+/**
+ * TestControl class is used to test the control functions
+ * 
+ * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian
+ * @version 1.0
+ * @since 2024-04-26
+ */
+
 public class TestControl {
+    /**
+     * This method is used to test the control functions.
+     * 
+     * @param args The arguments.
+     */
     public static void main(String[] args) {
+        /*
+         * Initialise the company
+         */
         CompanyController.initialise();
+
+        /*
+         * those part below is commented for test-case purposes
+         */
 
         // System.out.println("Admin: ");
         // System.out.println(Company.getAdmin().get(0).getUserName());

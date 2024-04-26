@@ -8,7 +8,7 @@ package exception;
  * @author Melisa Lee
  * @author Rivaldo Billy Sebastian
  * @version 1.0
- * @since 2021-04-26
+ * @since 2024-04-26
  */
 public class WrongPasswordException extends Exception {
     /**

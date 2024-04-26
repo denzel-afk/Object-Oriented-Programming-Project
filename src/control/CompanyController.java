@@ -13,8 +13,22 @@ import entity.Role;
 import entity.MenuItem;
 import entity.MenuCategory;
 
+/*
+ * CompanyController class is used to control the company functions
+ * 
+ * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian
+ * @version 1.0
+ * @since 2024-04-26
+ */
+
 public class CompanyController {
 
+    /*
+     * The loadBranch method is used to load the branch data from the database
+     */
     private static void loadBranch() {
         // read data from branch_list.xlsx
         ArrayList<Object[]> branchRead = ExcelReaderWriter.readFile("data/branch_list_updated.xlsx", 3);
@@ -30,6 +44,9 @@ public class CompanyController {
         Company.setBranch(branches);
     }
 
+    /*
+     * The loadStaff method is used to load the staff data from the database
+     */
     private static void loadStaff() {
         // read data from staff_list.xlsx
         ArrayList<Object[]> staffRead = ExcelReaderWriter.readFile("data/staff_list_updated.xlsx", 6);
@@ -78,13 +95,18 @@ public class CompanyController {
         }
     }
 
+    /*
+     * The loadMenu method is used to load the menu data from the database
+     */
     private static void loadMenu() {
         // read data from menu_list.xlsx
         ArrayList<Object[]> menuRead = ExcelReaderWriter.readFile("data/menu_list_updated.xlsx", 4);
 
         // iterate through menu_list and add new items to the database
         for (int i = 1; i < menuRead.size(); i++) {
-
+            /*
+             * @param Category The category of the menu item.
+             */
             MenuCategory Category = MenuCategory.BURGER;
 
             switch ((String) menuRead.get(i)[3]) {
@@ -134,6 +156,9 @@ public class CompanyController {
         loadMenu();
     }
 
+    /*
+     * The displayBranch method is used to display the branch data
+     */
     public static void displayBranch() {
 
         HashMap<String, Branch> branchList = Company.getBranch();

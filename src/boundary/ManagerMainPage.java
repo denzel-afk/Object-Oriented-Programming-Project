@@ -17,18 +17,59 @@ import exception.WrongPasswordException;
 
 import java.util.ArrayList;
 
+/**
+ * ManagerMainPage class is used to display the main page for the manager to
+ * interact with the system. The manager can view all orders, view an order,
+ * process an order, display staff list, display menu, add menu item, edit menu
+ * item, delete menu item, change password, and log out.
+ * 
+ * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian
+ * @version 1.0
+ * @since 2024-04-26
+ */
+
 public class ManagerMainPage extends StaffMainPage {
 
   static Scanner sc = new Scanner(System.in);
 
+  /**
+   * The ManagerUI method is used to display the main page for the manager to
+   * interact with the system. The manager can view all orders, view an order,
+   * process an order, display staff list, display menu, add menu item, edit menu
+   * item, delete menu item, change password, and log out.
+   * 
+   * @param user The user that is currently logged in.
+   */
   public static void ManagerUI(User user) {
 
     System.out.println("-----Manager-----");
 
+    /*
+     * The staff object is used to store the staff object that is returned from the
+     * checkValid method.
+     */
     Staff staff = null;
     if (user instanceof Staff)
       staff = (Staff) user;
 
+    /*
+     * @param branchName The branch name of the staff.
+     * 
+     * @param orderID The order ID of the order.
+     * 
+     * @param name The name of the menu item.
+     * 
+     * @param price The price of the menu item.
+     * 
+     * @param choice The choice of the user.
+     * 
+     * @param index The index of the menu item.
+     * 
+     * @param category The category of the menu item.
+     */
     String branchName = staff.getBranchName();
     String orderID, name;
     double price;
@@ -48,6 +89,9 @@ public class ManagerMainPage extends StaffMainPage {
           + "10)Log Out");
       choice = sc.nextInt();
 
+      /*
+       * @param choice The choice of the user.
+       */
       switch (choice) {
         case 1:
           viewNewOrders(branchName); // call static method from StaffMainPage
@@ -76,15 +120,15 @@ public class ManagerMainPage extends StaffMainPage {
           sc.nextLine();
           System.out.print("Enter item name:");
           name = sc.nextLine();
-          
+
           System.out.print("Enter item price:");
           price = sc.nextDouble();
-         // sc.nextLine();
-          
+          // sc.nextLine();
+
           System.out.println("Enter item category\n1)SET_MEAL\n2)BURGER\n3)SIDE\n4)DRINK:");
           category = sc.nextInt();
-          
-          MenuEditController.addMenuItem(branchName, name, price, category);  
+
+          MenuEditController.addMenuItem(branchName, name, price, category);
           break;
 
         case 7: // Edit Menu Item
@@ -109,7 +153,7 @@ public class ManagerMainPage extends StaffMainPage {
               MenuEditController.editMenuItemPrice(branchName, index, price);
               break;
             case 3:
-            	System.out.println("Enter item category\n1)SET_MEAL\n2)BURGER\n3)SIDE\n4)DRINK:");
+              System.out.println("Enter item category\n1)SET_MEAL\n2)BURGER\n3)SIDE\n4)DRINK:");
               category = sc.nextInt();
               MenuEditController.editMenuItemCategory(branchName, index, category);
               break;
