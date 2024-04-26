@@ -26,8 +26,6 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 - `data` contains the data we work on
 - `diagrams` contains the UML diagrams
 
-## Unified Modeling Language
-
 ## Features
 - **User Authentication**: Secure login and password management for staff.
 - **Role-Based Access**: Different interfaces for customer, staff, manager, and admin.
