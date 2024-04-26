@@ -13,10 +13,19 @@ package exception;
  */
 
 public class MenuException extends Exception {
+	/**
+	 * Constructs a new MenuException with a default message. This exception will be
+	 * shown when a menu's name does not exist.
+	 */
 	public MenuException() {
 		super("Menu does not exist!");
 	}
-
+	/**
+	 * Constructs a new MenuException with the specified detail message.
+	 *
+	 * @param message the detail message (which is saved for later retrieval by the
+	 *                getMessage() method)
+	 */
 	public MenuException(String message) {
 		super(message);
 	}
