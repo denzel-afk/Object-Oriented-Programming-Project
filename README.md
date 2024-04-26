@@ -26,6 +26,15 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
 - `data` contains the data we work on
 - `umls` contains the UML diagrams
 
-# Unified Modeling Language
+## Unified Modeling Language
 
-# Folder Structure
+## Features
+- **User Authentication**: Secure login and password management for staff.
+- **Role-Based Access**: Different interfaces for customer, staff, manager, and admin.
+- **Food Management**: Creation, editing, and deletion of menu items information.
+- **Ordering Management**: Order, pickup, checkout, cancel.
+- **Customization Handling**: Management of custom, including creation, editing, and deletion.
+- **Reports Generation**: Automated generation of reports for staff list and branches
+- **Extensible UI**: Modular user interface components for flexibility.
+- **Repository Pattern**: For efficient data storage and retrieval.
+
