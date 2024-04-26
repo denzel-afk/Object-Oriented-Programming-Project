@@ -4,6 +4,9 @@ package exception;
  * A custom exception class for handling errors related to adding staff.
  * 
  * @author Denzel Elden Wijaya
+ * @author Federrico Hansen Budianto
+ * @author Melisa Lee
+ * @author Rivaldo Billy Sebastian 
  * @version 1.0
  * @since 2024-04-26
  */
