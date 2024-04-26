@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-public class ExcelReader {
+public class ExcelReaderWriter {
     public static ArrayList<Object[]> readFile(String pathName, int noOfCols) {
         try {
             FileInputStream file = new FileInputStream(pathName);

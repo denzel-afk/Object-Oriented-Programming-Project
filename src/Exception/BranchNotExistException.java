@@ -1,11 +1,11 @@
-package Exception;
+package exception;
 
 public class BranchNotExistException extends Exception {
-    public BranchNotExistException(){
+    public BranchNotExistException() {
         super("Branch does not exist");
     }
 
-    public BranchNotExistException(String message){
+    public BranchNotExistException(String message) {
         super(message);
     }
 }

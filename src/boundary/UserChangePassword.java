@@ -1,10 +1,5 @@
 package boundary;
 
-public class UserChangePassword {
-
-}
-package boundary;
-
 import java.util.Scanner;
 
 import entity.Admin;
@@ -21,18 +16,18 @@ import control.AccountController;
 import control.PasswordController;
 
 public class UserChangePassword {
-	
+
 	static Scanner sc = new Scanner(System.in);
 
 	@SuppressWarnings("incomplete-switch")
-	public static void changePasswordUI(User user){
-		
+	public static void changePasswordUI(User user) {
+
 		System.out.println("Enter your old password");
 		String oldPassword = sc.next();
-		
+
 		System.out.println("Enter your new password");
 		String newPassword = sc.next();
-		
+
 		try {
 			PasswordController.changePassword(user, oldPassword, newPassword);
 		} catch (Exception e) {
@@ -41,14 +36,13 @@ public class UserChangePassword {
 			return;
 		}
 
-		
 		if (user instanceof Admin)
 			AdminMainPage.AdminUI(user);
-		
+
 		if (user instanceof Staff) {
-			Staff staffUser = (Staff) user; 
-			
-			switch(staffUser.getRole()) { //need to add getRole in StaffController class?
+			Staff staffUser = (Staff) user;
+
+			switch (staffUser.getRole()) { // need to add getRole in StaffController class?
 				case STAFF:
 					StaffMainPage.StaffUI(staffUser);
 					break;
@@ -56,7 +50,7 @@ public class UserChangePassword {
 					ManagerMainPage.ManagerUI(staffUser);
 			}
 		}
-		
+
 	}
 
 }

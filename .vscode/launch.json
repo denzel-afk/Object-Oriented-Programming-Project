@@ -1,6 +1,12 @@
 {
   "configurations": [
-
+    {
+      "type": "java",
+      "name": "Main",
+      "request": "launch",
+      "mainClass": "boundary.Main",
+      "projectName": "Object-Oriented-Programming-Project_e0c1d0f6"
+    },
     {
       "type": "java",
       "name": "Test",
