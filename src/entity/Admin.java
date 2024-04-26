@@ -1,6 +1,9 @@
 /**
   The Admin class represents an administrator user in the system, extending the User class.
+  @author  Denzel Elden Wijaya
+  @author  Federrico Hansen Budianto
   @author  Melisa Lee
+  @author  Rivaldo Billy Sebastian
   @version 1.0
   @since   2024-04-26
  */
