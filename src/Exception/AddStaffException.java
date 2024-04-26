@@ -1,5 +1,3 @@
-package exception;
-
 /**
  * A custom exception class for handling errors related to adding staff.
  * 
@@ -10,6 +8,8 @@ package exception;
  * @version 1.0
  * @since 2024-04-26
  */
+package exception;
+
 public class AddStaffException extends Exception {
 
     /**
