@@ -20,12 +20,6 @@ FOMS is an application developed for the SC2002 Object-Oriented Design & Program
   <li><a href="https://github.com/rivaldobilly">Rivaldo Billy Sebastian</a></li>
 </ol>
 
-## Folder Structure
-
-- `src` contains our source code
-- `data` contains the data we work on
-- `diagrams` contains the UML diagrams
-
 ## Features
 - **User Authentication**: Secure login and password management for staff.
 - **Role-Based Access**: Different interfaces for customer, staff, manager, and admin.
