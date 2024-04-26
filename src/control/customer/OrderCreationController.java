@@ -14,7 +14,7 @@ import exception.MenuException;
 import exception.OrderException;
 
 public class OrderCreationController {
-    private static int id = 1;
+    private static int id = 100;
     // this id will increase when a new order is creeated, makes the order unique
 
     public static String createOrder(String branchName, boolean takeaway) {

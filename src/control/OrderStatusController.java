@@ -56,7 +56,7 @@ public class OrderStatusController
                 String key = e.getKey();
 
                 if ((order.getStatus() == OrderStatus.READY_TO_PICKUP)
-                        && (System.currentTimeMillis() - order.getTimeElapsed() > 100000)) {
+                        && (System.currentTimeMillis() - order.getTimeElapsed() > 1000000000)) {
                     orderList.remove(key);
                     order.setStatus(OrderStatus.CANCELLED);
                     orderList.put(key, order);
@@ -87,9 +87,7 @@ public class OrderStatusController
             if (order.getStatus() == OrderStatus.READY_TO_PICKUP) {
                 order.setStatus(OrderStatus.COMPLETED);
                 System.out.println("Order collected!");
-            }
-
-            else if (order.getStatus() == OrderStatus.PENDING)
+            } else if (order.getStatus() == OrderStatus.PENDING)
                 System.out.println("Order not ready for collection!");
             else if (order.getStatus() == OrderStatus.CANCELLED)
                 System.out.println("Order Cancelled!");

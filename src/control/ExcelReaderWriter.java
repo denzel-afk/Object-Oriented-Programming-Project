@@ -26,15 +26,18 @@ public class ExcelReaderWriter {
 
                 for (int i = 0; i < noOfCols; i++) {
                     Cell cell = row.getCell(i);
-                    switch (cell.getCellTypeEnum()) {
-                        case STRING:
-                            colValue[i] = cell.getStringCellValue();
-                            break;
-                        case NUMERIC:
-                            colValue[i] = cell.getNumericCellValue();
-                            break;
-                        default:
-                            colValue[i] = "-";
+                    if (cell != null) {
+                        CellType cellType = cell.getCellTypeEnum();
+                        switch (cellType) {
+                            case STRING:
+                                colValue[i] = cell.getStringCellValue();
+                                break;
+                            case NUMERIC:
+                                colValue[i] = cell.getNumericCellValue();
+                                break;
+                            default:
+                                colValue[i] = "-";
+                        }
                     }
                 }
                 entry.add(colValue);
