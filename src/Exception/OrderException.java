@@ -9,10 +9,17 @@ package exception;
  * @since 2021-04-26
  */
 public class OrderException extends Exception {
+	/**
+	 * The serial version UID.
+	 */
 	public OrderException() {
 		super("Order is undetermined");
 	}
-
+	/**
+	 * The constructor for the OrderException class.
+	 * 
+	 * @param message The error message.
+	 */
 	public OrderException(String message) {
 		super(message);
 	}
