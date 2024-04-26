@@ -57,7 +57,7 @@ public class CustomerMainPage {
     String remarks, text;
 
     do {
-      System.out.println("Select 1) Dine-In\n2) Takeaway");
+      System.out.println("Select:\n 1) Dine-In\n 2) Takeaway");
       takeaway = sc.nextInt();
     } while (takeaway < 1 || takeaway > 2);
 
@@ -120,7 +120,7 @@ public class CustomerMainPage {
             break;
 
           boolean payment = false;
-          System.out.println("Choose payment method: 1) Cash\n2) Credit Card\n3) PayNow\nAny number to exit");
+          System.out.println("Choose payment method:\n 1) Cash\n2) Credit Card\n3) PayNow\nAny number to exit");
           index = sc.nextInt();
           switch (index) {
             case 1:
