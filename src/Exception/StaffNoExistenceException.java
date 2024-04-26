@@ -11,10 +11,17 @@ package exception;
  * @since 2021-04-26
  */
 public class StaffNoExistenceException extends Exception{
+	/**
+	 * The serial version UID.
+	 */
 	public StaffNoExistenceException() {
 		super("Staff login ID does not exist");
 	}
-	
+	/**
+	 * The constructor for the StaffNoExistenceException class.
+	 * 
+	 * @param message The error message.
+	 */
 	public StaffNoExistenceException(String message) {
 		super(message);
 	}
