@@ -19,6 +19,7 @@ import exception.StaffExistException;
 
 /**
  * AdminController class is used to control the admin functions
+ * It provides methods for managing staff, branches, and payment methods
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -59,10 +60,13 @@ public class AdminController {
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Transfers a staff member to another branch.
      * 
-     * @param staff     The staff object
-     * @param branchKey The branch key
+     * @param staff     The staff object to be transferred.
+     * @param branchKey The key of the branch to which the staff is to be
+     *                  transferred.
+     * @throws StaffExistException If the staff already exists.
+     * @throws AddStaffException   If an error occurs while adding staff.
      */
     public static void transferStaff(Staff staff, String branchKey) throws StaffExistException, AddStaffException {
         Staff tempStaff = new Staff(staff.getUserName(), staff.getUserId(), staff.getRole(),
@@ -76,11 +80,13 @@ public class AdminController {
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Assigns a staff member to a specific role and branch.
      * 
-     * @param staff  The staff object
-     * @param role   The role object
-     * @param branch The branch object
+     * @param staff  The staff object to be assigned.
+     * @param role   The role object to which the staff is to be assigned.
+     * @param branch The branch object to which the staff is to be assigned.
+     * @throws StaffExistException If the staff already exists.
+     * @throws AddStaffException   If an error occurs while adding staff.
      */
     public static void assignStaff(Staff staff, Role role, Branch branch)
             throws StaffExistException, AddStaffException {
@@ -91,32 +97,34 @@ public class AdminController {
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Adds a staff member to the specified branch.
      * 
-     * @param staff  The staff object
-     * @param branch The branch object
+     * @param staff  The staff object to be added.
+     * @param branch The branch object to which the staff is to be added.
+     * @throws StaffExistException If the staff already exists.
+     * @throws AddStaffException   If an error occurs while adding staff.
      */
     public static void addStaff(Staff staff, Branch branch) throws StaffExistException, AddStaffException {
         ManpowerController.addStaff(staff, branch);
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Deletes a staff member.
      * 
-     * @param staff The staff object
+     * @param staff The staff object to be deleted.
      */
     public static void deleteStaff(Staff staff) {
         ManpowerController.deleteStaff(staff);
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Edits the username of a staff member.
      * 
-     * @param staff The staff object
-     * @param name  The new username of the staff
-     * @throws BranchNotExistException If the branch does not exist
-     * @throws StaffExistException     If the staff already exists
-     * @throws AddStaffException       If the staff cannot be added
+     * @param staff The staff object whose username is to be edited.
+     * @param name  The new username of the staff.
+     * @throws BranchNotExistException If the branch does not exist.
+     * @throws StaffExistException     If the staff already exists.
+     * @throws AddStaffException       If the staff cannot be added.
      */
     public static void editStaffName(Staff staff, String name)
             throws BranchNotExistException, StaffExistException, AddStaffException {
@@ -128,13 +136,13 @@ public class AdminController {
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Edits the ID of a staff member.
      * 
-     * @param staff The staff object
-     * @param Id    The new ID of the staff
-     * @throws BranchNotExistException If the branch does not exist
-     * @throws StaffExistException     If the staff already exists
-     * @throws AddStaffException       If the staff cannot be added
+     * @param staff The staff object whose ID is to be edited.
+     * @param Id    The new ID of the staff.
+     * @throws BranchNotExistException If the branch does not exist.
+     * @throws StaffExistException     If the staff already exists.
+     * @throws AddStaffException       If the staff cannot be added.
      */
     public static void editStaffId(Staff staff, String Id)
             throws BranchNotExistException, StaffExistException, AddStaffException {
@@ -164,29 +172,26 @@ public class AdminController {
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Edits the branch of a staff member.
      * 
-     * @param staff  The staff object
-     * @param branch The new branch of the staff
-     * @param role   The new role of the staff
-     * @throws StaffExistException If the staff already exists
-     * @throws AddStaffException   If the staff cannot be added
-     * 
+     * @param staff  The staff object whose branch is to be edited.
+     * @param branch The new branch of the staff.
+     * @throws StaffExistException If the staff already exists.
+     * @throws AddStaffException   If the staff cannot be added.
      */
     public static void editStaffBranch(Staff staff, Branch branch) throws StaffExistException, AddStaffException {
         deleteStaff(staff);
         addStaff(staff, branch);
-
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Promotes a staff member to a higher role.
      * 
-     * @param staff The staff object
-     * @throws PromotionException      If the staff cannot be promoted
-     * @throws BranchNotExistException If the branch does not exist
-     * @throws StaffExistException     If the staff already exists
-     * @throws AddStaffException       If the staff cannot be added
+     * @param staff The staff object to be promoted.
+     * @throws PromotionException      If the staff cannot be promoted.
+     * @throws BranchNotExistException If the branch does not exist.
+     * @throws StaffExistException     If the staff already exists.
+     * @throws AddStaffException       If the staff cannot be added.
      */
     public static void promoteStaff(Staff staff)
             throws PromotionException, BranchNotExistException, StaffExistException, AddStaffException {
@@ -208,31 +213,31 @@ public class AdminController {
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Opens a new branch.
      * 
-     * @param branch The branch object
-     * @throws BranchExistException If the branch already exists
+     * @param branch The branch object representing the new branch to be opened.
+     * @throws BranchExistsException If the branch already exists.
      */
     public static void openBranch(Branch branch) throws BranchExistsException {
         BranchOperationController.openBranch(branch);
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Closes a branch.
      * 
-     * @param branch The branch object
-     * @throws CloseBranchException If the branch cannot be closed
+     * @param branch The branch object representing the branch to be closed.
+     * @throws CloseBranchException If the branch cannot be closed.
      */
     public static void closeBranch(Branch branch) throws CloseBranchException {
         BranchOperationController.closeBranch(branch);
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
+     * Retrieves the branch with the given name.
      * 
-     * @param branchName The branch name
-     * @throws BranchNotExistException If the branch does not exist
-     * @return The branch
+     * @param branchName The name of the branch to retrieve.
+     * @return The branch object.
+     * @throws BranchNotExistException If the branch does not exist.
      */
     public static Branch getBranch(String branchName) throws BranchNotExistException {
         Branch branch = null;
@@ -252,6 +257,11 @@ public class AdminController {
 
     private static final String pathName = "data/payment_method.xlsx";
 
+    /**
+     * Adds a new payment method to the list.
+     * 
+     * @param method The payment method to be added.
+     */
     public static void addPaymentMethod(String method) {
         try {
             ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
@@ -272,6 +282,11 @@ public class AdminController {
         }
     }
 
+    /**
+     * Removes a payment method from the list.
+     * 
+     * @param method The payment method to be removed.
+     */
     public static void removePaymentMethod(String method) {
         try {
             ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
@@ -289,6 +304,9 @@ public class AdminController {
         }
     }
 
+    /**
+     * Displays all available payment methods.
+     */
     public static void displayPaymentMethods() {
         try {
             ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);

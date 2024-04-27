@@ -14,10 +14,12 @@ package control.customer;
 
 public abstract class PaymentController {
     /**
-     * This method is used to process the payment.
+     * Processes the payment for an order.
      * 
      * @param total   The total price of the order.
      * @param payment The payment made by the customer.
+     * @return True if the payment is successfully processed; false otherwise.
      */
     public abstract boolean processPayment(double total, double payment);
+
 }

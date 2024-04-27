@@ -28,77 +28,81 @@ import control.ExcelReaderWriter;
 public class BranchOperationController {
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
-     * 
-     * @param branch The branch name.
-     * @throws BranchExistsException If the branch already exists.
+     * Opens a new branch and updates the branch list.
+     *
+     * @param branch The branch to be opened.
+     * @throws BranchExistsException If a branch with the same name already exists.
      */
     public static void openBranch(Branch branch) throws BranchExistsException {
         try {
-            HashMap<String, Branch> temBranches = Company.getBranch();
+            HashMap<String, Branch> tempBranches = Company.getBranch();
 
-            for (Map.Entry<String, Branch> e : temBranches.entrySet()) {
-                if (e.getKey().equals(branch.getBranchName())) {
+            // Check if the branch already exists
+            for (Map.Entry<String, Branch> entry : tempBranches.entrySet()) {
+                if (entry.getKey().equals(branch.getBranchName())) {
                     throw new BranchExistsException();
                 }
             }
 
-            temBranches.put(branch.getBranchName(), branch);
-            Company.setBranch(temBranches);
+            // Add the new branch to the list of branches
+            tempBranches.put(branch.getBranchName(), branch);
+            Company.setBranch(tempBranches);
 
+            // Update the branch list file
             ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/branch_list_updated.xlsx", 3);
-            Object[] toWrite = new Object[3];
-
-            toWrite[0] = branch.getBranchName();
-            toWrite[1] = branch.getLocation();
-            toWrite[2] = (double) branch.getStaffQuota();
-
-            table.add(toWrite);
-
+            Object[] data = new Object[3];
+            data[0] = branch.getBranchName();
+            data[1] = branch.getLocation();
+            data[2] = (double) branch.getStaffQuota();
+            table.add(data);
             ExcelReaderWriter.writeFile(table, "data/branch_list_updated.xlsx", 3);
         } catch (IOException | InvalidFormatException e) {
+            // Handle file IO or format exceptions
             e.printStackTrace();
         }
     }
 
     /**
-     * The displayStaffByBranch method is used to display the staff by branch
-     * 
-     * @param branch The branch name.
-     * @throws CloseBranchException If the branch cannot be closed.
-     * 
+     * Closes a branch and updates the branch list.
+     *
+     * @param branch The branch to be closed.
+     * @throws CloseBranchException If the branch cannot be closed due to remaining
+     *                              staff or managers.
      */
     public static void closeBranch(Branch branch) throws CloseBranchException {
         try {
-            HashMap<String, Branch> temBranches = Company.getBranch();
+            HashMap<String, Branch> tempBranches = Company.getBranch();
 
-            for (Map.Entry<String, Branch> e : temBranches.entrySet()) {
-                if (e.getKey().equals(branch.getBranchName())) {
-                    Branch temBranch = e.getValue();
-                    if (temBranch.getNumStaff() > 0 || temBranch.getNumManager() > 0)
+            // Check if the branch exists and has no remaining staff or managers
+            for (Map.Entry<String, Branch> entry : tempBranches.entrySet()) {
+                if (entry.getKey().equals(branch.getBranchName())) {
+                    Branch tempBranch = entry.getValue();
+                    if (tempBranch.getNumStaff() > 0 || tempBranch.getNumManager() > 0) {
                         throw new CloseBranchException();
-                    temBranches.remove(e.getKey());
+                    }
+                    tempBranches.remove(entry.getKey());
                     break;
                 }
             }
 
-            Company.setBranch(temBranches);
+            // Update the branch list
+            Company.setBranch(tempBranches);
 
+            // Update the branch list file
             ArrayList<Object[]> table = ExcelReaderWriter.readFile("data/branch_list_updated.xlsx", 3);
-            Object[] toWrite = new Object[3];
-
-            toWrite[0] = branch.getBranchName();
-            toWrite[1] = branch.getLocation();
-            toWrite[2] = (double) branch.getStaffQuota();
-
+            Object[] data = new Object[3];
+            data[0] = branch.getBranchName();
+            data[1] = branch.getLocation();
+            data[2] = (double) branch.getStaffQuota();
             for (int i = 0; i < table.size(); i++) {
-                if (table.get(i)[0].equals(toWrite[0])) {
+                if (table.get(i)[0].equals(data[0])) {
                     table.remove(i);
                     break;
                 }
             }
             ExcelReaderWriter.writeFile(table, "data/default_branch_list.xlsx", 3);
         } catch (IOException | InvalidFormatException e) {
+            // Handle file IO or format exceptions
             e.printStackTrace();
         }
     }

@@ -1,25 +1,33 @@
 package entity;
 
 /**
- * Enum class for Role
+ * Enum class for representing different roles.
+ * 
+ * <p>
+ * The roles include:
+ * <ul>
+ * <li>STAFF: The staff role.</li>
+ * <li>MANAGER: The manager role.</li>
+ * <li>ADMIN: The admin role.</li>
+ * </ul>
  * 
  * @author Denzel Elden Wijaya
- * @author Federrico Hansen Budianto
- * @author Melisa Lee
- * @author Rivaldo Billy Sebastian
- * 
  * @version 1.0
  * @since 2024-04-26
  */
 public enum Role {
 	/**
-	 * The different roles of a staff
-	 * 
-	 * @param STAFF   The staff role for user
-	 * @param MANAGER The manager role for user
-	 * @param ADMIN   The admin role for user
+	 * The staff role.
 	 */
 	STAFF,
+
+	/**
+	 * The manager role.
+	 */
 	MANAGER,
+
+	/**
+	 * The admin role.
+	 */
 	ADMIN
 }

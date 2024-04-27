@@ -15,8 +15,10 @@ import exception.StaffExistException;
 import exception.WrongPasswordException;
 
 /**
- * EmployeeLogin class is used to display the login page for the employee to
- * interact with the system. The employee can login as a staff or an admin.
+ * LogOut class provides functionality for logging out users from the system.
+ * It displays the logout page for the employee to interact with the system and
+ * choose to log out.
+ * The employee can log out as a staff or an admin.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -31,8 +33,8 @@ public class LogOut {
 	static Scanner sc = new Scanner(System.in);
 
 	/**
-	 * The employeeLoginUI method is used to display the login page for the employee
-	 * to interact with the system. The employee can login as a staff or an admin.
+	 * Displays the logout page for the employee to interact with the system and
+	 * choose to log out.
 	 * 
 	 * @param user The user that is currently logged in.
 	 * @param role The role of the user that is currently logged in.

@@ -32,6 +32,8 @@ public class AdminMainPage {
 	 * Class methods below
 	 * AdminUI is Command Line Interface
 	 * AdminUI is the main page for the admin user
+	 * 
+	 * @param user The user object representing the admin user.
 	 */
 	public static void AdminUI(User user) {
 
@@ -71,11 +73,11 @@ public class AdminMainPage {
 	}
 
 	/**
-	 * categoryChoice method is used to display the categories that the admin user
-	 * can choose to edit.
+	 * Displays the categories that the admin user can choose to edit.
+	 *
+	 * @return The chosen category as an integer.
 	 */
 	public static int categoryChoice() {
-
 		System.out.println("What category would you like to edit? (1-5 only)");
 		System.out.println("1: Manpower-related");
 		System.out.println("2: Branch-related");
@@ -86,7 +88,6 @@ public class AdminMainPage {
 		int choice = sc.nextInt();
 
 		return choice;
-
 	}
 
 	/**
@@ -492,7 +493,6 @@ public class AdminMainPage {
 	 * paymentActions method is used to display the payment-related actions that the
 	 * admin user can choose to edit.
 	 * 
-	 * @return the action that will be done related to payment by the admin user
 	 */
 	public static void paymentActions() {
 

@@ -13,7 +13,7 @@ package control;
  */
 public interface OrderProcessingInterface {
     /**
-     * This method is used to process the order.
+     * This interface is used to process the order.
      * 
      * @param branchName The branch name.
      * @param id         The order ID.

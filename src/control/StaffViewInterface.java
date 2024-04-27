@@ -14,7 +14,7 @@ package control;
 
 public interface StaffViewInterface {
     /**
-     * This method is used to view the new orders.
+     * This interface is used to view the new orders.
      * 
      * @param branchName The branch name.
      */

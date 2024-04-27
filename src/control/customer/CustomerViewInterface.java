@@ -23,10 +23,11 @@ public interface CustomerViewInterface {
     public void viewOrderStatus(String branchName, String orderID);
 
     /**
-     * This method is used to view the order details.
+     * Views the details of an order.
      * 
-     * @param branchName The branch name where it is ordered.
-     * @param orderID    The order ID.
+     * @param branchName The name of the branch where the order is placed.
+     * @param orderID    The ID of the order.
+     * @return The total amount of the order.
      */
     public double viewOrderDetails(String branchName, String orderID);
 }

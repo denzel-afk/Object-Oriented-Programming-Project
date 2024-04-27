@@ -14,15 +14,22 @@ package entity;
 public enum OrderStatus {
 
 	/**
-	 * The different statuses of an order
-	 * 
-	 * @param PENDING         The order is pending
-	 * @param READY_TO_PICKUP The order is ready to be picked up
-	 * @param COMPLETED       The order is completed
-	 * @param CANCELLED       The order is cancelled
+	 * The order is pending.
 	 */
 	PENDING,
+
+	/**
+	 * The order is ready to be picked up.
+	 */
 	READY_TO_PICKUP,
+
+	/**
+	 * The order is completed.
+	 */
 	COMPLETED,
+
+	/**
+	 * The order is cancelled.
+	 */
 	CANCELLED
 }

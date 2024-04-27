@@ -12,7 +12,7 @@ import java.util.*;
  *         staffQuota, mgrQuota, numStaff, numManager, staffList, menuItems,
  *         orders.
  * @version 2.0
- * @Since 2024-04-26
+ * @since 2024-04-26
  */
 public class Branch {
 	/**

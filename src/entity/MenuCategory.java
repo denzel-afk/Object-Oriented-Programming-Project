@@ -15,20 +15,29 @@ package entity;
 public enum MenuCategory {
 
     /**
-     * @param SET_MEAL The set meal category
-     * @param BURGER   The burger category
-     * @param SIDE     The side category
-     * @param DRINK    The drink category
+     * The set meal category.
      */
     SET_MEAL,
+
+    /**
+     * The burger category.
+     */
     BURGER,
+
+    /**
+     * The side category.
+     */
     SIDE,
+
+    /**
+     * The drink category.
+     */
     DRINK;
 
     /**
-     * This method is used to convert the enum name to a more readable format
+     * Converts the enum name to a more readable format.
      * 
-     * @return The enum name in a more readable format
+     * @return The enum name in a more readable format.
      */
     public String toString() {
         return name().replaceAll("_", " "); // Convert enum name to a more readable format

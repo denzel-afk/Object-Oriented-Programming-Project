@@ -60,6 +60,5 @@ public class PayNowController extends PaymentController {
             System.out.println("Payment not successful, exiting");
             return false;
         }
-
     }
 }
