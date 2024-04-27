@@ -1,9 +1,9 @@
 package entity;
 
 /**
- * entity is the package containing the classes that represent the data of the
- * system.
- * It contains the classes that represent the data of the system.
+ * The User class represents a user in the system.
+ * Users have attributes such as name, ID, age, gender, and role.
+ * Users can also be compared based on their age.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -13,24 +13,30 @@ package entity;
  * @since 2024-04-26
  */
 public class User implements Comparable {
+
 	/**
-	 * @param userName the name of the user
-	 * 
-	 * @param userId   the id of the user
-	 * 
-	 * @param password the password of the user
-	 * 
-	 * @param age      the age of the user
-	 * 
-	 * @param gender   is the gender of the user
-	 * 
-	 * @param role     is the role of the user
+	 * the username of a user, it is unique for each user
 	 */
 	private String userName;
+	/**
+	 * the id of a user
+	 */
 	private String userId;
+	/**
+	 * the password of a user
+	 */
 	private String password;
+	/**
+	 * the age of a user
+	 */
 	private int age;
+	/**
+	 * the gender of a user
+	 */
 	private String gender;
+	/**
+	 * the role of a user, can be staff, manager, or admin
+	 */
 	private Role role;
 
 	/**
@@ -54,7 +60,7 @@ public class User implements Comparable {
 	/**
 	 * This method is used to get the role of the user
 	 * 
-	 * @return role The role of the user
+	 * @return the role of the user
 	 */
 	public Role getRole() {
 		return role;
@@ -70,16 +76,16 @@ public class User implements Comparable {
 	}
 
 	/**
-	 * This method is used to get the name of the user
+	 * This method is used to get the username of the user
 	 * 
-	 * @return userName The name of the user
+	 * @return the name of the user
 	 */
 	public String getUserName() {
 		return userName;
 	}
 
 	/**
-	 * This method is used to set the name of the user
+	 * This method is used to set the username of the user
 	 * 
 	 * @param userName The name of the user
 	 */
@@ -90,7 +96,7 @@ public class User implements Comparable {
 	/**
 	 * This method is used to get the id of the user
 	 * 
-	 * @return userId The id of the user
+	 * @return the id of the user
 	 */
 	public String getUserId() {
 		return userId;
@@ -108,7 +114,7 @@ public class User implements Comparable {
 	/**
 	 * This method is used to get the password of the user
 	 * 
-	 * @return password The password of the user
+	 * @return the password of the user
 	 */
 	public String getPassword() {
 		return password;
@@ -126,7 +132,7 @@ public class User implements Comparable {
 	/**
 	 * This method is used to get the age of the user
 	 * 
-	 * @return age The age of the user
+	 * @return the age of the user
 	 */
 	public int getAge() {
 		return age;
@@ -144,7 +150,7 @@ public class User implements Comparable {
 	/**
 	 * This method is used to get the gender of the user
 	 * 
-	 * @return gender The gender of the user
+	 * @return the gender of the user
 	 */
 	public String getGender() {
 		return gender;

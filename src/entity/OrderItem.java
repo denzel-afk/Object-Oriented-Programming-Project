@@ -2,7 +2,7 @@ package entity;
 
 /**
  * The OrderItem class represents an item in an order.
- * It contains the item, quantity, and remarks of the item.
+ * It contains the item, quantity, and remarks of an item ordered.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -15,18 +15,22 @@ package entity;
 
 public class OrderItem {
 	/**
-	 * @param item     the item in the order
-	 * 
-	 * @param quantity the quantity of the item
-	 * 
-	 * @param remarks  the remarks of the item
+	 * a particular item in the order.
 	 */
 	private MenuItem item;
+
+	/**
+	 * The quantity of the item.
+	 */
 	private int quantity;
+
+	/**
+	 * The remarks of the item.
+	 */
 	private String remarks;
 
 	/**
-	 * This constructor is used to create a new order item
+	 * This constructor is used to create a new order item.
 	 * 
 	 * @param item     The item in the order
 	 * @param quantity The quantity of the item
@@ -50,7 +54,7 @@ public class OrderItem {
 	/**
 	 * This method is used to get the item in the order
 	 * 
-	 * @return item The item in the order
+	 * @return the item in the order
 	 */
 	public MenuItem getItem() {
 		return item;
@@ -68,7 +72,7 @@ public class OrderItem {
 	/**
 	 * This method is used to get the quantity of the item
 	 * 
-	 * @return quantity The quantity of the item
+	 * @return the quantity of the item
 	 */
 	public int getQuantity() {
 		return quantity;
@@ -86,7 +90,7 @@ public class OrderItem {
 	/**
 	 * This method is used to get the remarks of the item
 	 * 
-	 * @return remarks The remarks of the item
+	 * @return the remarks of the item
 	 */
 	public String getRemarks() {
 		return remarks;

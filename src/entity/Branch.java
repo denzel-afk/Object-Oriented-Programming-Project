@@ -3,39 +3,63 @@ package entity;
 import java.util.*;
 
 /**
+ * Branch class is used to store the information of a branch, including
+ * branchName, location,
+ * staffQuota, mgrQuota, numStaff, numManager, staffList, menuItems, orders.
+ * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
  * @author Melisa Lee
  * @author Rivaldo Billy Sebastian
- *         Branch class is used to store the information of a branch, including
- *         branchName, location,
- *         staffQuota, mgrQuota, numStaff, numManager, staffList, menuItems,
- *         orders.
+ * 
  * @version 2.0
- * @since 2024-04-26
+ * @Since 2024-04-26
  */
 public class Branch {
+
 	/**
-	 * Constructs an Admin object with the specified parameters.
-	 *
-	 * @param branchName the name of the branch.
-	 * @param location   the location of the branch.
-	 * @param staffQuota the maximum number of staff allowed in the branch.
-	 * @param mgrQuota   the maximum number of managers allowed in the branch.
-	 * @param numStaff   the current number of staff in the branch.
-	 * @param numManager the current number of managers in the branch.
-	 * @param staffList  the list of staff in the branch.
-	 * @param menuItems  the list of menu items in the branch.
-	 * @param orders     the list of orders in the branch.
+	 * the name of the branch
 	 */
 	private String branchName;
+
+	/**
+	 * the location of the branch
+	 */
 	private String location;
+
+	/**
+	 * the maximum number of staff allowed in the branch
+	 */
 	private int staffQuota;
+
+	/**
+	 * the maximum number of managers allowed in the branch
+	 */
 	private int mgrQuota;
+
+	/**
+	 * the current number of staff in the branch
+	 */
 	private int numStaff = 0;
+
+	/**
+	 * the current number of manager in the branch
+	 */
 	private int numManager = 0;
+
+	/**
+	 * the list of staff in the branch
+	 */
 	private ArrayList<Staff> staffList;
+
+	/**
+	 * the list of menu items in the branch
+	 */
 	private ArrayList<MenuItem> menuItems;
+
+	/**
+	 * the list of orders in the branch
+	 */
 	private HashMap<String, Order> orders;
 
 	/**

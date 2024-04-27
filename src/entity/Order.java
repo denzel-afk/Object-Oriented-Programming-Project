@@ -3,7 +3,11 @@ package entity;
 import java.util.*;
 
 /**
- * Order class to store the order details
+ * Order class to store the order details.
+ * 
+ * Represents an order placed by a customer, including the status, order items,
+ * time elapsed since order placement,
+ * whether it is takeaway or dine-in, and total price.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -14,26 +18,34 @@ import java.util.*;
  */
 public class Order {
 	/**
-	 * @param status      the status of the order
-	 * 
-	 * @param orderItems  the list of order items
-	 * 
-	 * @param timeElapsed the time elapsed since the order was placed
-	 * 
-	 * @param isTakeaway  the boolean value to check if the order is takeaway
-	 * 
-	 * @param totalPrice  the total price of the order
+	 * The status of the order.
 	 */
 	private OrderStatus status;
+
+	/**
+	 * The list of order items.
+	 */
 	private ArrayList<OrderItem> orderItems;
+
+	/**
+	 * The time elapsed since the order was placed and paid.
+	 */
 	private long timeElapsed;
+
+	/**
+	 * Indicates whether the order is for takeaway.
+	 */
 	private Boolean isTakeaway;
+
+	/**
+	 * The total price of the order.
+	 */
 	private double totalPrice;
 
 	/**
-	 * This constructor is used to create a new order
+	 * Constructs a new order object.
 	 * 
-	 * @param isTakeaway The boolean value to check if the order is takeaway
+	 * @param isTakeaway Indicates whether the order is for takeaway or dine-in
 	 */
 	public Order(boolean isTakeaway) {
 		this.isTakeaway = isTakeaway;
@@ -42,16 +54,16 @@ public class Order {
 	}
 
 	/**
-	 * This method is used to create a new order
+	 * This method is used to check the status of an order
 	 * 
-	 * @return order The new order status
+	 * @return the new order status
 	 */
 	public OrderStatus getStatus() {
 		return this.status;
 	}
 
 	/**
-	 * This method is used to get the status of the order
+	 * This method is used to set the status of an order
 	 * 
 	 * @param status The status of the order
 	 */
@@ -60,16 +72,16 @@ public class Order {
 	}
 
 	/**
-	 * This method is used to set the status of the order
+	 * This method is used to get the list of items ordered by a customer
 	 * 
-	 * @return orderItems The list of order items
+	 * @return the list of order items
 	 */
 	public ArrayList<OrderItem> getItems() {
 		return orderItems;
 	}
 
 	/**
-	 * This method is used to get the list of order items
+	 * This method is used to set the items that is ordered by a customer
 	 * 
 	 * @param orderItems The list of order items
 	 */
@@ -78,16 +90,17 @@ public class Order {
 	}
 
 	/**
-	 * This method is used to set the list of order items
+	 * This method is used to get the time passed since the order is placed and paid
+	 * if the time elapsed exceed the time limit, the order is canceled
 	 * 
-	 * @return timeElapsed The time elapsed since the order was placed
+	 * @return the time elapsed since the order was placed
 	 */
 	public long getTimeElapsed() {
 		return this.timeElapsed;
 	}
 
 	/**
-	 * This method is used to get the time elapsed since the order was placed
+	 * This method is used to set the time elapsed since the order was placed
 	 * 
 	 * @param timeElapsed The time elapsed since the order was placed
 	 */
@@ -96,36 +109,36 @@ public class Order {
 	}
 
 	/**
-	 * This method is used to set the time elapsed since the order was placed
+	 * This method is used to set the time elapsed since the order was placed and
+	 * paid
 	 * 
-	 * @return isTakeaway The boolean value to check if the order is takeaway
+	 * @return the boolean value to check if the order is takeaway
 	 */
 	public Boolean getIsTakeaway() {
 		return this.isTakeaway;
 	}
 
 	/**
-	 * This method is used to get the boolean value to check if the order is
-	 * takeaway
+	 * This method is used to set the order to takeaway(1) or dine-in(0) option
 	 * 
-	 * @param isTakeaway The boolean value to check if the order is takeaway
+	 * @param isTakeaway The boolean value to indicate if an order is takeaway or
+	 *                   not
 	 */
 	public void setIsTakeaway(Boolean isTakeaway) {
 		this.isTakeaway = isTakeaway;
 	}
 
 	/**
-	 * This method is used to set the boolean value to check if the order is
-	 * takeaway
+	 * This method is used to get the total price of an order that must be paid
 	 * 
-	 * @return totalPrice The total price of the order
+	 * @return the total price of the order
 	 */
 	public double getTotalPrice() {
 		return this.totalPrice;
 	}
 
 	/**
-	 * This method is used to get the total price of the order
+	 * This method is used to set the total price of an order that must be paid
 	 * 
 	 * @param totalPrice The total price of the order
 	 */

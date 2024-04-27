@@ -1,9 +1,8 @@
 package entity;
 
 /**
- * This class is an enum class that represents the different categories of menu
- * items
- * It contains the different categories of menu items
+ * Enum class for representing the different categories of menu items.
+ * Each category corresponds to a specific type of menu item.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -15,29 +14,30 @@ package entity;
 public enum MenuCategory {
 
     /**
-     * The set meal category.
+     * the set meal category
      */
     SET_MEAL,
 
     /**
-     * The burger category.
+     * the burger category
      */
     BURGER,
 
     /**
-     * The side category.
+     * the side category
      */
     SIDE,
 
     /**
-     * The drink category.
+     * the drink category
      */
     DRINK;
 
     /**
-     * Converts the enum name to a more readable format.
+     * Converts the enum name to a more readable format by replacing underscores
+     * with spaces.
      * 
-     * @return The enum name in a more readable format.
+     * @return The enum name in a more readable format
      */
     public String toString() {
         return name().replaceAll("_", " "); // Convert enum name to a more readable format

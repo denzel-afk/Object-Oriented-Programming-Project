@@ -13,7 +13,7 @@ package entity;
  */
 public class Staff extends User {
 	/**
-	 * @param branchName The branch name of the staff
+	 * the branch name where the staff is working at
 	 */
 	private String branchName;
 
@@ -33,7 +33,7 @@ public class Staff extends User {
 	}
 
 	/**
-	 * Get the branch name of the staff
+	 * Get the branch name where the staff is working at
 	 * 
 	 * @return the branch name of the staff
 	 */
@@ -42,7 +42,7 @@ public class Staff extends User {
 	}
 
 	/**
-	 * Set the branch name of the staff
+	 * Set the branch name where the staff is working at
 	 * 
 	 * @param branchName the branch name of the staff
 	 */

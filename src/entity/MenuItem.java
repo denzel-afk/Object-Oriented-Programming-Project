@@ -1,9 +1,10 @@
 package entity;
 
 /**
- * MenuItem class is used to store the details of the menu items
- * It contains the attributes of the menu items
- * It contains the getter and setter methods for the attributes
+ * MenuItem class represents a menu item in the restaurant.
+ * It stores details such as the name, category, and price of the menu item.
+ * Provides getter and setter methods for accessing and modifying the
+ * attributes.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -14,15 +15,20 @@ package entity;
  * @since 2024-04-26
  */
 public class MenuItem {
+
 	/**
-	 * @param itemName the name of the menu item
-	 * 
-	 * @param category the category of the menu item
-	 * 
-	 * @param price    the price of the menu item
+	 * The name of the menu item.
 	 */
 	private String itemName;
+
+	/**
+	 * The category of the menu item.
+	 */
 	private MenuCategory category;
+
+	/**
+	 * The price of the menu item.
+	 */
 	private double price;
 
 	/**
@@ -41,7 +47,7 @@ public class MenuItem {
 	/**
 	 * This method is used to get the name of the menu item
 	 * 
-	 * @return itemName The name of the menu item
+	 * @return the name of the menu item
 	 */
 	public String getItemName() {
 		return itemName;
@@ -59,7 +65,7 @@ public class MenuItem {
 	/**
 	 * This method is used to get the category of the menu item
 	 * 
-	 * @return category The category of the menu item
+	 * @return the category of the menu item
 	 */
 	public MenuCategory getCategory() {
 		return category;
@@ -77,7 +83,7 @@ public class MenuItem {
 	/**
 	 * This method is used to get the price of the menu item
 	 * 
-	 * @return price The price of a particular menu item
+	 * @return the price of a particular menu item
 	 */
 	public double getPrice() {
 		return price;

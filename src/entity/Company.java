@@ -3,9 +3,9 @@ package entity;
 import java.util.*;
 
 /**
- * This class is the entity class for Company
- * It contains the attributes of the Company
- * It contains the getter and setter methods for the attributes
+ * This class is the entity class for a Company.
+ * It contains the attributes and methods related to the Company.
+ * The Company class manages branches and admins within the company.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -15,17 +15,20 @@ import java.util.*;
  * @since 2024-04-26
  */
 public class Company {
-    /**
-     * @param branches The branches of the company with respective staffs
-     * @param admins   The admins of the company
+	/**
+     * The branches of the company with respective staffs.
      */
     private static HashMap<String, Branch> branches = new HashMap<>();
+    
+    /**
+     * The admins of the company.
+     */
     private static ArrayList<Admin> admins = new ArrayList<>();
 
     /**
      * This method is used to get the branches of the company
      * 
-     * @return branches The branches of the company with respective staffs
+     * @return the branches of the company with respective staffs
      */
     public static HashMap<String, Branch> getBranch() {
         return branches;
@@ -43,7 +46,7 @@ public class Company {
     /**
      * This method is used to get the admins of the company
      * 
-     * @return admins The admins of the company
+     * @return the admins of the company
      */
     public static ArrayList<Admin> getAdmin() {
         return admins;

@@ -1,8 +1,8 @@
 package entity;
 
 /**
- * The OrderStatus enum represents the status of an order.
- * It contains the different statuses of an order.
+ * Enum class representing the status of an order.
+ * The OrderStatus enum contains different statuses for orders.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
