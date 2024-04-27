@@ -3,6 +3,8 @@ package exception;
 /**
  * A custom exception class for handling errors related to non-existing staff
  * login IDs.
+ * This exception is thrown when attempting to access a staff member with a
+ * login ID that does not exist.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -14,16 +16,18 @@ package exception;
 
 public class StaffNoExistenceException extends Exception {
 	/**
-	 * The serial version UID.
+	 * Constructs a new StaffNoExistenceException with the default message "Staff
+	 * login ID does not exist".
 	 */
 	public StaffNoExistenceException() {
 		super("Staff login ID does not exist");
 	}
 
 	/**
-	 * The constructor for the StaffNoExistenceException class.
+	 * Constructs a new StaffNoExistenceException with the specified detail message.
 	 * 
-	 * @param message The error message.
+	 * @param message The detail message (which is saved for later retrieval by the
+	 *                getMessage() method).
 	 */
 	public StaffNoExistenceException(String message) {
 		super(message);

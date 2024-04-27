@@ -2,6 +2,7 @@ package exception;
 
 /**
  * A custom exception class for handling errors related to staff promotion.
+ * This exception is thrown when there is an issue with promoting staff members.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -12,16 +13,18 @@ package exception;
  */
 public class PromotionException extends Exception {
     /**
-     * The serial version UID.
+     * Constructs a new PromotionException with the default message "Unable to
+     * promote staff".
      */
     public PromotionException() {
         super("Unable to promote staff");
     }
 
     /**
-     * The constructor for the PromotionException class.
+     * Constructs a new PromotionException with the specified detail message.
      * 
-     * @param message The error message.
+     * @param message The detail message (which is saved for later retrieval by the
+     *                getMessage() method).
      */
     public PromotionException(String message) {
         super(message);

@@ -15,9 +15,7 @@ package exception;
 public class BranchNotExistException extends Exception {
     /**
      * Constructs a new BranchNotExistException with a default message. This
-     * exception
-     * will be
-     * shown when a branch's name does not exist.
+     * exception will be shown when a branch's name does not exist.
      */
     public BranchNotExistException() {
         super("Branch does not exist");

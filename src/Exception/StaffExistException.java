@@ -2,6 +2,8 @@ package exception;
 
 /**
  * A custom exception class for handling errors related to staff existence.
+ * This exception is thrown when attempting to add a staff member with an ID
+ * that already exists.
  * 
  * @author Denzel Elden Wijaya
  * @author Federrico Hansen Budianto
@@ -12,16 +14,18 @@ package exception;
  */
 public class StaffExistException extends Exception {
     /**
-     * The serial version UID.
+     * Constructs a new StaffExistException with the default message "Staff's ID
+     * already existed".
      */
     public StaffExistException() {
         super("Staff's ID already existed");
     }
 
     /**
-     * The constructor for the StaffExistException class.
+     * Constructs a new StaffExistException with the specified detail message.
      * 
-     * @param message The error message.
+     * @param message The detail message (which is saved for later retrieval by the
+     *                getMessage() method).
      */
     public StaffExistException(String message) {
         super(message);

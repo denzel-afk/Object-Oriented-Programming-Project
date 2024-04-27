@@ -13,7 +13,7 @@ import java.util.*;
  * @author Rivaldo Billy Sebastian
  * 
  * @version 2.0
- * @Since 2024-04-26
+ * @since 2024-04-26
  */
 public class Branch {
 
