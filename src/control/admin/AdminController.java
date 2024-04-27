@@ -250,7 +250,7 @@ public class AdminController {
         return branch;
     }
 
-    private static final String pathName = "data/payment.xlsx";
+    private static final String pathName = "data/payment_method.xlsx";
 
     public static void addPaymentMethod(String method) {
         try {
@@ -300,5 +300,26 @@ public class AdminController {
             System.out.println(e.getMessage());
         }
         System.out.println("Payment method displayed");
+    }
+
+    public static void deletePaymentMethod(String method) {
+        try {
+            ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
+
+            Object[] toDelete = new Object[0];
+
+            toDelete[0] = method;
+
+            for (int i = 1; i <= payment.size(); i++) {
+                if (payment.get(i)[0].equals(toDelete[0])) {
+                    payment.remove(i);
+                    break;
+                }
+            }
+            ExcelReaderWriter.writeFile(payment, pathName, 1);
+            System.out.println("Payment method removed: " + method);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

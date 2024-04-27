@@ -513,6 +513,14 @@ public class AdminMainPage {
 				AdminController.addPaymentMethod(paymentName);
 				AdminController.displayPaymentMethods();
 				break;
+			case 2:
+				System.out.println("Name of the payment to be deleted: ");
+				String paymentNameDelete = sc.next();
+				AdminController.deletePaymentMethod(paymentNameDelete);
+				AdminController.displayPaymentMethods();
+				break;
+			case 3:
+				return;
 		}
 	}
 }
