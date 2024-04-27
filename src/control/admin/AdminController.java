@@ -1,11 +1,15 @@
 package control.admin;
 
 import java.util.Map;
+import java.util.ArrayList;
 
+import control.ExcelReaderWriter;
 import entity.Staff;
 import entity.Role;
 import entity.Branch;
 import entity.Company;
+import entity.MenuCategory;
+import entity.MenuItem;
 import exception.AddStaffException;
 import exception.BranchExistsException;
 import exception.BranchNotExistException;
@@ -246,4 +250,55 @@ public class AdminController {
         return branch;
     }
 
+    private static final String pathName = "data/payment.xlsx";
+
+    public static void addPaymentMethod(String method) {
+        try {
+            ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
+            Object[] toWrite = new Object[1];
+
+            toWrite[0] = method;
+            payment.add(toWrite);
+
+            ExcelReaderWriter.writeFile(payment, pathName, 1);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void removePaymentMethod(String method, int index) {
+        try {
+            ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
+
+            Object[] toDelete = new Object[0];
+
+            toDelete[0] = method;
+
+            for (int i = 0; i < payment.size(); i++) {
+                if (payment.get(i)[0].equals(toDelete[0])) {
+                    payment.remove(i);
+                    break;
+                }
+            }
+            ExcelReaderWriter.writeFile(payment, pathName, 1);
+            payment.remove(index - 1);
+            System.out.println("Payment method removed: " + method);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void displayPaymentMethods() {
+        try {
+            ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
+
+            System.out.println("Payment Methods:");
+            for (int i = 0; i < payment.size(); i++) {
+                System.out.println((i + 1) + ". " + payment.get(i)[0]);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        System.out.println("Payment method displayed");
+    }
 }

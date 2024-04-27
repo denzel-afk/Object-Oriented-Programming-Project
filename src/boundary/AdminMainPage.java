@@ -5,6 +5,7 @@ import java.util.*;
 import control.AccountController;
 import control.CompanyController;
 import control.admin.*;
+import entity.Admin;
 import entity.Branch;
 import entity.Company;
 import entity.Role;
@@ -493,36 +494,25 @@ public class AdminMainPage {
 	 * 
 	 * @return the action that will be done related to payment by the admin user
 	 */
-	public static int paymentActions() {
+	public static void paymentActions() {
 
 		System.out.println("0: Display existing payment methods");
 		System.out.println("1: Add a new payment method");
-		System.out.println("2: Remove an existing payment method");
+		System.out.println("2: Delete a payment method");
 		System.out.println("3: Return to action page");
 
 		int paymentAction = sc.nextInt();
-
-		/*
-		 * The following code is commented out for test-case purpose
-		 * 
-		 * switch(paymentAction) {
-		 * case 0:
-		 * PaymentController.displayPaymentMethods();
-		 * break;
-		 * case 1:
-		 * PaymentController.addPaymentMethod();
-		 * break;
-		 * case 2:
-		 * PaymentController.removePaymentMethod();
-		 * break;
-		 * case 3:
-		 * return;
-		 * }
-		 * 
-		 * return;
-		 */
-
-		return paymentAction;
+		switch (paymentAction) {
+			case 0:
+				System.out.println("Displaying existing payment methods...");
+				AdminController.displayPaymentMethods();
+				break;
+			case 1:
+				System.out.println("Name of the new payment: ");
+				String paymentName = sc.next();
+				AdminController.addPaymentMethod(paymentName);
+				AdminController.displayPaymentMethods();
+				break;
+		}
 	}
-
 }
