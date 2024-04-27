@@ -514,9 +514,10 @@ public class AdminMainPage {
 				AdminController.displayPaymentMethods();
 				break;
 			case 2:
+				AdminController.displayPaymentMethods();
 				System.out.println("Name of the payment to be deleted: ");
 				String paymentNameDelete = sc.next();
-				AdminController.deletePaymentMethod(paymentNameDelete);
+				AdminController.removePaymentMethod(paymentNameDelete);
 				AdminController.displayPaymentMethods();
 				break;
 			case 3:

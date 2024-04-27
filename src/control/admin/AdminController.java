@@ -258,6 +258,12 @@ public class AdminController {
             Object[] toWrite = new Object[1];
 
             toWrite[0] = method;
+            for (int i = 1; i < payment.size(); i++) {
+                if (payment.get(i)[0].equals(method)) {
+                    System.out.println("Payment method already exists");
+                    return;
+                }
+            }
             payment.add(toWrite);
 
             ExcelReaderWriter.writeFile(payment, pathName, 1);
@@ -266,25 +272,20 @@ public class AdminController {
         }
     }
 
-    public static void removePaymentMethod(String method, int index) {
+    public static void removePaymentMethod(String method) {
         try {
             ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
 
-            Object[] toDelete = new Object[0];
-
-            toDelete[0] = method;
-
             for (int i = 0; i < payment.size(); i++) {
-                if (payment.get(i)[0].equals(toDelete[0])) {
+                if (payment.get(i)[0].equals(method)) {
                     payment.remove(i);
                     break;
                 }
             }
             ExcelReaderWriter.writeFile(payment, pathName, 1);
-            payment.remove(index - 1);
             System.out.println("Payment method removed: " + method);
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error removing payment method: " + e.getMessage());
         }
     }
 
@@ -293,33 +294,12 @@ public class AdminController {
             ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
 
             System.out.println("Payment Methods:");
-            for (int i = 0; i < payment.size(); i++) {
-                System.out.println((i + 1) + ". " + payment.get(i)[0]);
+            for (int i = 1; i < payment.size(); i++) {
+                System.out.println((i) + ". " + payment.get(i)[0]);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         System.out.println("Payment method displayed");
-    }
-
-    public static void deletePaymentMethod(String method) {
-        try {
-            ArrayList<Object[]> payment = ExcelReaderWriter.readFile(pathName, 1);
-
-            Object[] toDelete = new Object[0];
-
-            toDelete[0] = method;
-
-            for (int i = 1; i <= payment.size(); i++) {
-                if (payment.get(i)[0].equals(toDelete[0])) {
-                    payment.remove(i);
-                    break;
-                }
-            }
-            ExcelReaderWriter.writeFile(payment, pathName, 1);
-            System.out.println("Payment method removed: " + method);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
     }
 }
