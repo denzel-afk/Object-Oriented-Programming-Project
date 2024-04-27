@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import entity.*;
 import control.*;
+import control.admin.AdminController;
 import control.customer.CashController;
 import control.customer.CreditCardController;
 import control.customer.CustomerViewInterface;
@@ -145,26 +146,18 @@ public class CustomerMainPage {
           double total = viewer.viewOrderDetails(branchName, orderID);
           if (total <= 0)
             break;
-
+          String pathName = "data/payment_method.xlsx";
           boolean payment = false;
-          System.out.println("Choose payment method:\n 1) Cash\n2) Credit Card\n3) PayNow\nAny number to exit");
-          index = sc.nextInt();
-          switch (index) {
-            case 1:
-              payment = new CashController().cash(total);
+          System.out.println("Choose payment method: (Please type the String e.g. Cash, PayNow)");
+          AdminController.displayPaymentMethods();
+          String paymentMethod = sc.next();
+          ArrayList<Object[]> payments = ExcelReaderWriter.readFile(pathName, 1);
+          for (int i = 0; i < payments.size(); i++) {
+            if (payments.get(i)[0].equals(paymentMethod)) {
+              payment = true;
               break;
-            case 2:
-              System.out.print("Enter card number: ");
-              String cardNo = sc.next();
-              payment = new CreditCardController(cardNo).Card(total);
-              break;
-            case 3:
-              System.out.print("Enter phone number: ");
-              String phonenumber = sc.next();
-              payment = new PayNowController(phonenumber).payNow(total);
-              break;
+            }
           }
-
           checkout.checkOut(branchName, orderID, payment);
           choice = 6;
           break;
